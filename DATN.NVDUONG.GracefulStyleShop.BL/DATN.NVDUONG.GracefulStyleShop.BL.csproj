@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DATN.NVDUONG.GracefulStyleShop.Common\DATN.NVDUONG.GracefulStyleShop.Common.csproj" />
+    <ProjectReference Include="..\DATN.NVDUONG.GracefulStyleShop.DL\DATN.NVDUONG.GracefulStyleShop.DL.csproj" />
+  </ItemGroup>
+
+</Project>

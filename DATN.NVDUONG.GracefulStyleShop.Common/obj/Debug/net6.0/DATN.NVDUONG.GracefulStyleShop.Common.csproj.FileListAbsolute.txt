@@ -1,0 +1,7 @@
+F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.Common\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.Common.csproj.AssemblyReference.cache
+F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.Common\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.Common.Models.Resources.ResourceVN.resources
+F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.Common\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.Common.csproj.GenerateResource.cache
+F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.Common\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.Common.GeneratedMSBuildEditorConfig.editorconfig
+F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.Common\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.Common.AssemblyInfoInputs.cache
+F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.Common\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.Common.AssemblyInfo.cs
+F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.Common\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.Common.csproj.CoreCompileInputs.cache

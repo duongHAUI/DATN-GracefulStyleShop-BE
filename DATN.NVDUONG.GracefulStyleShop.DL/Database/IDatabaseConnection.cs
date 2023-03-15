@@ -1,0 +1,111 @@
+﻿using Dapper;
+using MySqlConnector;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static Dapper.SqlMapper;
+
+namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
+{
+    public interface IDatabaseConnection
+    {
+        /// <summary>
+        /// Mở state kết nối
+        /// </summary>
+        /// /// CreatedBy : NVD (7/2/2023)
+        void Open();
+
+        /// <summary>
+        /// Đóng kết nối
+        /// </summary>
+        /// /// CreatedBy : NVD (7/2/2023)
+        void Close();
+
+        /// <summary>
+        /// Khởi tạo transaction
+        /// </summary>
+        /// /// CreatedBy : NVD (7/2/2023)
+        void BeginTransaction();
+
+        /// <summary>
+        /// transaction thực thi
+        /// </summary>
+        /// /// CreatedBy : NVD (7/2/2023)
+        void CommitTransaction();
+
+        /// <summary>
+        /// rollback transaction
+        /// </summary>
+        /// /// CreatedBy : NVD (7/2/2023)
+        void RollbackTransaction();
+
+        /// <summary>
+        /// Execute a command that returns multiple result sets, and access each in turn.
+        /// </summary>
+        /// <param name="cnn">The connection to query on.</param>
+        /// <param name="sql">The SQL to execute for this query.</param>
+        /// <param name="param">The parameters to use for this query.</param>
+        /// <param name="transaction">The transaction to use for this query.</param>
+        /// <param name="commandTimeout">Number of seconds before command execution timeout.</param>
+        /// <param name="commandType">Is it a stored proc or a batch?</param>
+        /// CreatedBy : NVD (7/2/2023)
+        public GridReader QueryMultiple(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+
+        /// <summary>
+        /// Execute parameterized SQL.
+        /// </summary>
+        /// <param name="sql">The SQL to execute for this query.</param>
+        /// <param name="param">The parameters to use for this query.</param>
+        /// <param name="transaction">The transaction to use for this query.</param>
+        /// <param name="commandTimeout">Number of seconds before command execution timeout.</param>
+        /// <param name="commandType">Is it a stored proc or a batch?</param>
+        /// <returns>The number of rows affected.</returns>
+        /// CreatedBy : NVD (7/2/2023)
+        public int Execute(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+
+        /// <summary>
+        /// Return a dynamic object with properties matching the columns.
+        /// </summary>
+        /// <param name="sql">The SQL to execute for the query.</param>
+        /// <param name="param">The parameters to pass, if any.</param>
+        /// <param name="transaction">The transaction to use, if any.</param>
+        /// <param name="commandTimeout">The command timeout (in seconds).</param>
+        /// <param name="commandType">The type of command to execute.</param>
+        /// <remarks>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</remarks>
+        /// CreatedBy : NVD (7/2/2023)
+        public T QueryFirstOrDefault<T>(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+
+        /// <summary>
+        /// Return a dynamic object with properties matching the columns.
+        /// </summary>
+        /// <param name="sql">The SQL to execute for the query.</param>
+        /// <param name="param">The parameters to pass, if any.</param>
+        /// <param name="transaction">The transaction to use, if any.</param>
+        /// <param name="commandTimeout">The command timeout (in seconds).</param>
+        /// <param name="commandType">The type of command to execute.</param>
+        /// <remarks>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</remarks>
+        /// CreatedBy : NVD (7/2/2023)
+        public object QueryFirstOrDefault(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+
+        /// <summary>
+        /// Xóa nhiều bản ghi theo id
+        /// </summary>
+        /// <param name="tableName">Tên bảng</param>
+        /// <param name="listId">List id</param>
+        /// <returns>Số lượng bản ghi được xóa</returns>
+        /// CreatedBy : NVD (11/2/2023)
+        public int DeleteRecords(string tableName, List<Guid> listId);
+
+        /// <summary>
+        /// Import
+        /// </summary>
+        /// <param name="tableName">Tên bảng</param>
+        /// <param name="dataTable">Dữ liệu bảng</param>
+        /// <returns>Số lượng bản ghi được thêm</returns>
+        /// CreatedBy : NVD (11/2/2023)
+        public int ImportExcel<T>(List<T> records);
+    }
+}

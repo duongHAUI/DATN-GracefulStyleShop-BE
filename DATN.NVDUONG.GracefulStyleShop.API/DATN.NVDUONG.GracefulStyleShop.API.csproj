@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DATN.NVDUONG.GracefulStyleShop.BL\DATN.NVDUONG.GracefulStyleShop.BL.csproj" />
+    <ProjectReference Include="..\DATN.NVDUONG.GracefulStyleShop.Common\DATN.NVDUONG.GracefulStyleShop.Common.csproj" />
+    <ProjectReference Include="..\DATN.NVDUONG.GracefulStyleShop.DL\DATN.NVDUONG.GracefulStyleShop.DL.csproj" />
+  </ItemGroup>
+
+</Project>
