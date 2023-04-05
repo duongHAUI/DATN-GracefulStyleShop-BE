@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj": {}
+    "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj": {}
   },
   "projects": {
-    "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj": {
+    "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj",
+        "projectUniqueName": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj",
         "projectName": "DATN.NVDUONG.GracefulStyleShop.Common",
-        "projectPath": "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj",
+        "projectPath": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj",
         "packagesPath": "C:\\Users\\duong\\.nuget\\packages\\",
-        "outputPath": "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.Common\\obj\\",
+        "outputPath": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\duong\\AppData\\Roaming\\NuGet\\NuGet.Config",

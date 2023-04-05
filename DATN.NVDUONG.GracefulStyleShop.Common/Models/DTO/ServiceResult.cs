@@ -13,7 +13,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO
         /// <summary>
         /// Contructor khởi tạo mặc định
         /// </summary>
-        /// Created by : NVDuong (1/2/2023)
         public ServiceResult() { }
 
         /// <summary>
@@ -24,7 +23,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO
         /// <param name="userMsg">Message lỗi cho user</param>
         /// <param name="moreInfo">Chi tiết lỗi</param>
         /// <param name="traceId">Id log lỗi</param>
-        /// Created by : NVDuong (1/2/2023)
         public ServiceResult(int errorCode, string devMsg, string userMsg, object moreInfo, dynamic? traceId = null)
         {
             ErrorCode = errorCode;
@@ -42,7 +40,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO
         /// <param name="userMsg">Message lỗi cho user</param>
         /// <param name="moreInfo">Chi tiết lỗi</param>
         /// <param name="traceId">Id log lỗi</param>
-        /// Created by : NVDuong (1/2/2023)
         public ServiceResult(int errorCode, string devMsg, string userMsg)
         {
             ErrorCode = errorCode;
@@ -54,7 +51,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO
         /// Hàm khởi success
         /// </summary>
         /// <param name="data">Dữ liệu trả về</param>
-        /// Created by : NVDuong (1/2/2023)
         public ServiceResult(object data)
         {
             Data = data;

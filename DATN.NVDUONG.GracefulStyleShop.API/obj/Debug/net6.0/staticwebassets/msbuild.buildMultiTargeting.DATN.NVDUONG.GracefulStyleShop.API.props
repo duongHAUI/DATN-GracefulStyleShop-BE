@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\DATN.NVDUONG.GracefulStyleShop.API.props" />
+</Project>

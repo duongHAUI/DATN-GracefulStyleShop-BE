@@ -21,7 +21,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Commons
         /// <param name="url">Link file template</param>
         /// <param name="memory">MemoryStream xuất ra</param>
         /// <returns>Chuỗi nếu lỗi</returns>
-        /// CreatedBy: NVD(12/2/2023)
         public static string PrintfDataTable(DataTable table, Dictionary<string, string> filter, string url, out MemoryStream memory)
         {
             memory = new MemoryStream();
@@ -66,7 +65,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Commons
         /// <param name="url">Link muốn chuyển</param>
         /// <param name="memoryStream">MemoryStream</param>
         /// <returns>Chuỗi lỗi nếu có</returns>
-        /// CreatedBy: NVD(12/2/2023)
         public static string DowLoadFileFromUrl(string url, out MemoryStream memoryStream)
         {
             memoryStream = null;
@@ -91,7 +89,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Commons
         /// </summary>
         /// <param name="fileStream">fileStream</param>
         /// <returns>DataTable</returns>
-        /// CreatedBy: NVD(11/2/2023)
         public static DataTable GetDataTableFromExcelFileWithHeader(Stream fileStream)
         {
             var dt = GetDataTableFromXlsx(fileStream);
@@ -117,7 +114,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Commons
         /// </summary>
         /// <param name="fileStream">fileStream</param>
         /// <returns>DataTable</returns>
-        /// CreatedBy: NVD(11/2/2023)
         public static DataTable GetDataTableFromXlsx(Stream fileStream)
         {
             DataTable dt = new DataTable();

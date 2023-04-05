@@ -21,7 +21,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
         /// <summary>
         /// Khởi tạo kết nối DB
         /// </summary>
-        /// CreatedBy : NVDuong (2/2/2023)
         public BaseDL(IDatabaseConnection databaseConnection)
         {
             tableName = typeof(Entity).Name;
@@ -30,47 +29,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
         #endregion
 
         #region Method
-        /// <summary>
-        /// Lấy danh sách 
-        /// </summary>
-        /// <returns>Danh sách đối tượng</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
-        public PagingResult<Entity> GetAll()
-        {
-            try
-            {
-                // Tên store produce
-                string storedProducedureName = String.Format(NameProduceConstants.GetByAll, tableName); 
-
-                _databaseConnection.Open();
-
-                // Xử lý lấy dữ liệu trong stored
-                var result = _databaseConnection.QueryMultiple(storedProducedureName, commandType: CommandType.StoredProcedure);
-
-                var data = result.Read<Entity>().ToList();
-
-                _databaseConnection.Close();
-
-                return new PagingResult<Entity>()
-                {
-                    Data = data,
-                    Total = data.Count()
-                };
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                _databaseConnection.Close();
-                throw new MExceptionResponse(ex.Message);
-            }
-        }
 
         /// <summary>
         /// Lấy danh sách có bộ lọc
         /// </summary>
         /// <param name="parametersFilter">Param bộ lọc truyền vào truyền vào</param>
         /// <returns>Danh sách đối tượng</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public PagingResult<Entity> GetByFilter(object parametersFilter)
         {
             try
@@ -79,7 +43,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
                 string storedProducedureName = String.Format(NameProduceConstants.GetByFilter, tableName);
 
                 var parameters = new DynamicParameters();
-                parameters.Add("p_TotalRecords", direction: ParameterDirection.Output);
+                parameters.Add("@TotalRecords", direction: ParameterDirection.Output);
                 foreach (PropertyInfo propertyInfo in parametersFilter.GetType().GetProperties())
                 {
                     // Add parameters
@@ -95,7 +59,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
                 var data = new PagingResult<Entity>()
                 {
                     Data = result.Read<Entity>().ToList(),
-                    Total = parameters.Get<int>("p_TotalRecords")
+                    Total = parameters.Get<int>("@TotalRecords")
                 };
 
                 // Đóng kết nối
@@ -116,7 +80,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
         /// </summary>
         /// <param name="EntityCode">Mã đối tượng</param>
         /// <returns>Trả về Id đối tượng</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public Guid GetByCode(string EntityCode)
         {
             try
@@ -152,7 +115,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
         /// </summary>
         /// <param name="EntityName">Tên đối tượng</param>
         /// <returns>Trả về Id đối tượng</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public Guid GetByName(string EntityName)
         {
             try
@@ -188,7 +150,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
         /// </summary>
         /// <param name="id">Id nhân viên</param>
         /// <returns>Thông tin 1 nhân viên</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public Entity GetById(Guid id)
         {
             try
@@ -225,7 +186,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
         /// </summary>
         /// <param name="entity">Thông tin nhân viên cần thêm</param>
         /// <returns>true - false</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public bool Insert(Entity entity)
         {
             try
@@ -266,7 +226,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
         /// </summary>
         /// <param name="entity">Thông tin nhân viên cần cập nhập</param>
         /// <returns>true - false</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public bool Update(Entity entity)
         {
             try
@@ -285,7 +244,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
                 // Mở kết nối
                 _databaseConnection.Open();
 
-                var res = _databaseConnection.Execute(storedProducedureName, param: parameters, commandType: CommandType.StoredProcedure);
+                int res = _databaseConnection.Execute(storedProducedureName, param: parameters, commandType: CommandType.StoredProcedure);
 
                 // Đóng kết nối
                 _databaseConnection.Close();
@@ -302,50 +261,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
         }
 
         /// <summary>
-        /// Xóa
-        /// </summary>
-        /// <param name="entityId">Id đối tượng cần xóa</param>
-        /// <returns>true - false</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
-        public bool Delete(Guid entityId)
-        {
-            try
-            {
-                // Tên store produce
-                string storedProducedureName = String.Format(NameProduceConstants.Delete, typeof(Entity).Name);
-
-                // Thêm parameter
-                var parametes = new DynamicParameters();
-                parametes.Add($"p_{tableName}Id", entityId);
-
-                // Mở kết nối
-                _databaseConnection.Open();
-                _databaseConnection.BeginTransaction();
-
-                // Xử lý xóa dữ liệu trong stored
-                var res = _databaseConnection.Execute(storedProducedureName, param: parametes, commandType: CommandType.StoredProcedure);
-
-                // Đóng kết nối
-                _databaseConnection.CommitTransaction();
-                _databaseConnection.Close();
-
-                return res == 0 ? false : true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                _databaseConnection.RollbackTransaction();
-                _databaseConnection.Close();
-                throw new MExceptionResponse(ex.Message);
-            }
-        }
-
-        /// <summary>
         /// Xóa bản ghi
         /// </summary>
         /// <param name="entityId">Id đối tượng cần xóa</param>
         /// <returns>true - false</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public bool DeleteRecords(List<Guid> listGuid)
         {
             try
@@ -364,7 +283,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
                 _databaseConnection.BeginTransaction();
 
                 // Xử lý xóa dữ liệu trong stored
-                var numberDeleted = _databaseConnection.Execute(storedProducedureName, param: parametes, commandType: CommandType.StoredProcedure);
+                int numberDeleted = _databaseConnection.DeleteRecords(tableName, listGuid);
 
                 if (numberDeleted == listGuid.Count) _databaseConnection.CommitTransaction();
                 else
@@ -377,6 +296,35 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
                 _databaseConnection.Close();
 
                 return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                _databaseConnection.RollbackTransaction();
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
+
+        public bool UpdateQuantity(Guid id, int quantity)
+        {
+            try
+            {
+                string query = $"Update {tableName} set Quantity = Quantity + {quantity} where {tableName}Id = {id}";
+
+                //Mở kết nối
+                _databaseConnection.Open();
+                _databaseConnection.BeginTransaction();
+
+                //Xử lý update dữ liệu số lượng
+                int numberUpdate = _databaseConnection.Execute(query, commandType: CommandType.Text);
+                if(numberUpdate == 0)
+                {
+                    return false;
+                }
+                _databaseConnection.CommitTransaction();
+                return true;
+
             }
             catch (Exception ex)
             {

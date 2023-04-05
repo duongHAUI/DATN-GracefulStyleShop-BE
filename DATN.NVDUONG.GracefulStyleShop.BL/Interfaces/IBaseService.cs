@@ -15,12 +15,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
     public interface IBaseService<Entity>
     {
         #region Method
-        /// <summary>
-        /// Lấy danh sách
-        /// </summary>
-        /// <returns>Danh sách đối tượng</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
-        public object GetAll();
 
         /// <summary>
         /// Lấy danh sách có bộ lọc
@@ -54,20 +48,13 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
         public ServiceResult Update(Guid id, Entity enity);
 
         /// <summary>
-        /// Xóa 1 bản ghi
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        /// CreatedBy : NVDuong (2/2/2023)
-        public bool Delete(Guid id);
-
-        /// <summary>
         /// Xóa nhiều bản ghi
         /// </summary>
         /// <param name="listId">ListID</param>
         /// <returns>Số bản ghi thay đổi</returns>
         /// CreatedBy : NVDuong (2/2/2023)
         public bool DeleteRecords(List<Guid> listId);
+        public bool UpdateQuantity(Guid id, int quantity);
         #endregion
     }
 }

@@ -1,0 +1,17 @@
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.BL.csproj.AssemblyReference.cache
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.BL.GeneratedMSBuildEditorConfig.editorconfig
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.BL.AssemblyInfoInputs.cache
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.BL.AssemblyInfo.cs
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.BL.csproj.CoreCompileInputs.cache
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.BL.deps.json
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.BL.dll
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.BL.pdb
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.Common.dll
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.DL.dll
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.Common.pdb
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.DL.pdb
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.BL.csproj.CopyComplete
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.BL.dll
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\obj\Debug\net6.0\refint\DATN_NguyenThiThuHuong.BL.dll
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.BL.pdb
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.BL\obj\Debug\net6.0\ref\DATN_NguyenThiThuHuong.BL.dll

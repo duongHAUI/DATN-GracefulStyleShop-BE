@@ -9,13 +9,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Helpers
     /// <summary>
     /// Chuỗi kết nối
     /// </summary>
-    /// CreatedBy : NVD (7/2/2023)
+    /// 
     public static class DatabaseContext
     {
         /// <summary>
         /// Chuỗi string config db
         /// </summary>
-        /// CreatedBy : NVD (3/2/2023)
         public static string connectionString = "";
     }
 }

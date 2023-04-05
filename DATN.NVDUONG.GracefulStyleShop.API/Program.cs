@@ -1,9 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MISA.AMIS.DL.Helpers;
+﻿using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
+using DATN.NVDUONG.GracefulStyleShop.BL.Services;
+using DATN.NVDUONG.GracefulStyleShop.DL;
+using DATN.NVDUONG.GracefulStyleShop.DL.Database;
+using DATN.NVDUONG.GracefulStyleShop.DL.Helpers;
+using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
+using DATN.NVDUONG.GracefulStyleShop.DL.Repository;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IDatabaseConnection, DatabaseConnection>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductDL, ProductDL>();
+builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
+builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

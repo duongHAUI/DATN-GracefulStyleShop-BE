@@ -1,5 +1,5 @@
 ﻿using DATN.NVDUONG.GracefulStyleShop.Common.Resources;
-using MDATN.NVDUONG.GracefulStyleShop.Commons;
+using DATN.NVDUONG.GracefulStyleShop.Commons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,7 +14,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.CustomAttributes
     /// <summary>
     /// Class custom lại sttribute RegularExpression bắn lỗi
     /// </summary>
-    /// CreatedBy: NVD (9/2/2023)
     public class CustomRegularExpressionAttribute : RegularExpressionAttribute
     {
         #region Contructor
@@ -29,10 +28,9 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.CustomAttributes
         /// </summary>
         /// <param name="name"></param>
         /// <returns>Format lỗi mong muốn</returns>
-        /// CreatedBy: NVD (9/2/2023)
         public override string FormatErrorMessage(string name)
         {
-            return name + " " + ResourceVN.NcorrectFormat;
+            return name + " " + ResourceVI.NcorrectFormat;
         }
 
         /// <summary>
@@ -40,7 +38,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.CustomAttributes
         /// </summary>
         /// <param name="name"></param>
         /// <returns>Trả ra true - false</returns>
-        /// CreatedBy: NVD (9/2/2023)
         public override bool IsValid(object? value)
         {
             if (value.ObjToStr().Trim() == "")

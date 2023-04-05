@@ -10,7 +10,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO
     /// <summary>
     /// Đầu vào xử lý file import
     /// </summary>
-    /// CreatdBy : NVD (17/2/2023)
     public class ImportEmployeeInput
     {
         #region Properties

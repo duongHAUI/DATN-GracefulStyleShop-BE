@@ -9,7 +9,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Enums
     /// <summary>
     /// Mã trạng thái của 1 dòng
     /// </summary>
-    /// CreatedBy: NVDuong (21/2/2023)
     public enum EnumStatusRowCodeImport
     {
         /// <summary>

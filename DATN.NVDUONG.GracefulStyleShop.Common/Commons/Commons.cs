@@ -5,7 +5,7 @@ using System.Data;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace MDATN.NVDUONG.GracefulStyleShop.Commons
+namespace DATN.NVDUONG.GracefulStyleShop.Commons
 {
     public static class Commons
     {
@@ -72,7 +72,6 @@ namespace MDATN.NVDUONG.GracefulStyleShop.Commons
         static public int ConvertBytesToMebibytes(double numberBytes)
         {
             return (int)(numberBytes / 1048576);
-        } 
-        #endregion
+        }
     }
 }

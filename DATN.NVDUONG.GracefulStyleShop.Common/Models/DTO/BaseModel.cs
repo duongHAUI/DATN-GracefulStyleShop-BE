@@ -11,25 +11,21 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO
         /// <summary>
         /// Thời gian tạo
         /// </summary>
-        /// CreatedBy: (16/1/2023)
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Người tạo
         /// </summary>
-        /// CreatedBy: (16/1/2023)
         public string CreatedBy { get; set; }
 
         /// <summary>
         /// Người sửa gần nhất
         /// </summary>
-        /// CreatedBy: (16/1/2023)
-        public string ModifiedBy { get; set; }
+        public string ModifiedBy{ get; set; }
 
         /// <summary>
         /// Thời gian sửa gần nhất
         /// </summary>
-        /// CreatedBy: (16/1/2023)
-        public DateTime? ModifiedDate { get; set; }
+        public DateTime ModifiedAt { get; set; }
     }
 }

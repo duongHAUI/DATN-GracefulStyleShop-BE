@@ -1100,11 +1100,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.DL\\DATN.NVDUONG.GracefulStyleShop.DL.csproj",
+      "projectUniqueName": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.DL\\DATN.NVDUONG.GracefulStyleShop.DL.csproj",
       "projectName": "DATN.NVDUONG.GracefulStyleShop.DL",
-      "projectPath": "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.DL\\DATN.NVDUONG.GracefulStyleShop.DL.csproj",
+      "projectPath": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.DL\\DATN.NVDUONG.GracefulStyleShop.DL.csproj",
       "packagesPath": "C:\\Users\\duong\\.nuget\\packages\\",
-      "outputPath": "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.DL\\obj\\",
+      "outputPath": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.DL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\duong\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1121,8 +1121,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj": {
-              "projectPath": "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj"
+            "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj": {
+              "projectPath": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj"
             }
           }
         }

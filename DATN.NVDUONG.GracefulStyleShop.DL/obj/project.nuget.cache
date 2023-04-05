@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z/I6JhU5h/yxoI0SCFfvz0UnpIPun/Zapz5tZm3rFmz+dn5SfIxcn9GfaXoY8ZXbZgvAXoJ2e47AZXvrUk3LlQ==",
+  "dgSpecHash": "o5zEwdmkcbenGhKm3Fe8cDM+4P9xDkD5ArOqipYiN2TsmSQLKOayYgjBMq9vdKofmET5erCcHMHeX81WmunRTg==",
   "success": true,
-  "projectFilePath": "F:\\DATN\\DATN.NVDUONG.GracefulStyleShop\\DATN.NVDUONG.GracefulStyleShop.DL\\DATN.NVDUONG.GracefulStyleShop.DL.csproj",
+  "projectFilePath": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.DL\\DATN.NVDUONG.GracefulStyleShop.DL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duong\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\epplus\\6.1.3\\epplus.6.1.3.nupkg.sha512",

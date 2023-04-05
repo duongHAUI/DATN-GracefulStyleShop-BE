@@ -3,7 +3,6 @@ using DATN.NVDUONG.GracefulStyleShop.Common.Enums;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO;
 using DATN.NVDUONG.GracefulStyleShop.Common.Resources;
 using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +18,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
     /// Xử lý logic và lấy dữ liệu base
     /// </summary>
     /// <typeparam name="Entity"></typeparam>
-    /// CreatedBy NVDuong (2/2/2023)
     public class BaseService<Entity>: IBaseService<Entity>
     {
         #region Field
@@ -35,22 +33,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         #endregion
 
         #region Method
-        /// <summary>
-        /// Lấy danh sách
-        /// </summary>
-        /// <returns>Danh sách đối tượng</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
-        public object GetAll()
-        {
-            return _baseDL.GetAll();
-        }
 
         /// <summary>
         /// Lấy danh sách có bộ lọc
         /// </summary>
         /// <param name="parameters">Param bộ lọc truyền vào truyền vào</param>
         /// <returns>Danh sách đối tượng</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public object GetByFilter(object parameters)
         {
             return _baseDL.GetByFilter(parameters);
@@ -61,7 +49,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Đối tượng</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public Entity GetById(Guid id)
         {
             return _baseDL.GetById(id);
@@ -72,7 +59,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// </summary>
         /// <param name="enity">Đối tượng</param>
         /// <returns>Danh sách nhân viên</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public ServiceResult Insert(Entity enity)
         {
             dynamic result;
@@ -85,12 +71,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
 
                 bool response = _baseDL.Insert(enity);
                 if(!response)
-                    result = new ServiceResult(EnumErrorCode.SERVER_ERROR, ResourceVN.ErrorServer, ResourceVN.ErrorServer);
+                    result = new ServiceResult(EnumErrorCode.SERVER_ERROR, ResourceVI.ErrorServer, ResourceVI.ErrorServer);
                 else result = new ServiceResult(id);
             }else
             {
                 // trả về lỗi validate
-                result = new ServiceResult(EnumErrorCode.BADREQUEST, ResourceVN.ErrorValidate, ResourceVN.ErrorValidate, listErrorValidate);
+                result = new ServiceResult(EnumErrorCode.BADREQUEST, ResourceVI.ErrorValidate, ResourceVI.ErrorValidate, listErrorValidate);
             }
 
             return result;
@@ -102,7 +88,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// <param name="id">Id</param>
         /// <param name="enity">Đối tượng</param>
         /// <returns>Danh sách nhân viên</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public ServiceResult Update(Guid id, Entity enity)
         {
             dynamic result;
@@ -116,25 +101,14 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
                 bool response = _baseDL.Update(enity);
 
                 if (!response)
-                    result = new ServiceResult(EnumErrorCode.SERVER_ERROR, ResourceVN.ErrorServer, ResourceVN.ErrorServer);
+                    result = new ServiceResult(EnumErrorCode.SERVER_ERROR, ResourceVI.ErrorServer, ResourceVI.ErrorServer);
                 else result = new ServiceResult(id);
             }else{
                 // trả về lỗi validate
-                result = new ServiceResult(EnumErrorCode.BADREQUEST, ResourceVN.ErrorValidate, ResourceVN.ErrorValidate, listErrorValidate);
+                result = new ServiceResult(EnumErrorCode.BADREQUEST, ResourceVI.ErrorValidate, ResourceVI.ErrorValidate, listErrorValidate);
             }
 
             return result;
-        }
-
-        /// <summary>
-        /// Xóa 1 bản ghi
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        /// CreatedBy : NVDuong (2/2/2023)
-        public bool Delete(Guid id)
-        {
-            return _baseDL.Delete(id);
         }
 
         /// <summary>
@@ -142,7 +116,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// </summary>
         /// <param name="listId">ListID</param>
         /// <returns>Số bản ghi thay đổi</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public bool DeleteRecords(List<Guid> listId)
         {
             return _baseDL.DeleteRecords(listId);
@@ -154,7 +127,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// <param name="entity">Đối tượng</param>
         /// <param name="isInsert">Insert hay Update</param>
         /// <returns>Ket qua validate</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public bool IsValidate(Entity entity, bool isInsert = true)
         {
             var validationResults = new List<ValidationResult>();
@@ -182,7 +154,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// </summary>
         /// <param name="entity">Thông tin đối tượng</param>
         /// <param name="isInsert">Action</param>
-        /// CreatedBy : NVDuong (2/2/2023)
         public virtual void ValidateCustom(Entity entity, bool isInsert = true) { }
 
         /// <summary>
@@ -192,13 +163,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// <param name="isInsert">Insert hoặc update</param>
         /// <param name="entityId">Id ban ghi insert</param>
         /// <returns>Đối tượng đầy đủ</returns>
-        /// /// CreatedBy : NVDuong (2/2/2023)
         public Entity AddProperties(dynamic entity, bool isInsert, Guid? entityId, out Guid newId)
         {
-            entity.ModifiedDate = DateTime.Now;
+            entity.ModifiedAt = DateTime.Now;
             if (isInsert)
             {
-                entity.CreatedDate = DateTime.Now;
+                entity.CreatedAt = DateTime.Now;
                 entity.GetType().GetProperty($"{typeof(Entity).Name}Id").SetValue(entity, Guid.NewGuid(), null);
             }
             else entity.GetType().GetProperty($"{typeof(Entity).Name}Id").SetValue(entity, entityId, null);
@@ -206,6 +176,17 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
             newId = entity.GetType().GetProperty($"{typeof(Entity).Name}Id").GetValue(entity, null);
 
             return entity;
+        }
+
+        /// <summary>
+        /// Cập nhật số lượng
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="quantity"> Trường hợp nhập hàng thì Quantity > 0, TH bán Quantity < 0</param>
+        /// <returns>true - false</returns>
+        public bool UpdateQuantity(Guid id, int quantity)
+        {
+            return _baseDL.UpdateQuantity(id, quantity);
         }
         #endregion
     }

@@ -14,7 +14,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common
         #region Field
         public Dictionary<string, string>? objMessageError;
         public string? msgError;
-        public string msgUser = ResourceVN.ErrorServer;
+        public string msgUser = ResourceVI.ErrorServer;
         public int? errorCode = EnumErrorCode.SERVER_ERROR;
         #endregion
 

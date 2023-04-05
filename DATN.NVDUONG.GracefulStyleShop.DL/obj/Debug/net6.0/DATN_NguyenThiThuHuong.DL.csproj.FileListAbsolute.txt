@@ -1,0 +1,15 @@
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.DL.csproj.AssemblyReference.cache
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.DL.GeneratedMSBuildEditorConfig.editorconfig
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.DL.AssemblyInfoInputs.cache
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.DL.AssemblyInfo.cs
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.DL.csproj.CoreCompileInputs.cache
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.DL.deps.json
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.DL.dll
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.DL.pdb
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.Common.dll
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\bin\Debug\net6.0\DATN_NguyenThiThuHuong.Common.pdb
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.DL.csproj.CopyComplete
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.DL.dll
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\obj\Debug\net6.0\refint\DATN_NguyenThiThuHuong.DL.dll
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\obj\Debug\net6.0\DATN_NguyenThiThuHuong.DL.pdb
+E:\NguyenThiThuHuong_DATN\DATN_NguyenThiThuHuong\DATN_NguyenThiThuHuong.DL\obj\Debug\net6.0\ref\DATN_NguyenThiThuHuong.DL.dll

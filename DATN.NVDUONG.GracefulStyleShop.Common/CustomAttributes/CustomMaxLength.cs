@@ -1,4 +1,5 @@
-﻿using MDATN.NVDUONG.GracefulStyleShop.Commons;
+﻿using DATN.NVDUONG.GracefulStyleShop.Common.Resources;
+using DATN.NVDUONG.GracefulStyleShop.Commons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -25,10 +26,9 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.CustomAttributes
         /// </summary>
         /// <param name="name">Display name</param>
         /// <returns>Format lỗi mong muốn</returns>
-        /// CreatedBy: NVD (9/2/2023)
         public override string FormatErrorMessage(string name)
         {
-            return String.Format(name + " " + ResourceVN.InValidMaxLength, _length);
+            return String.Format(name + " " + ResourceVI.InValidMaxLength, _length);
         }
 
         /// <summary>
@@ -36,7 +36,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.CustomAttributes
         /// </summary>
         /// <param name="value">Giá trị</param>
         /// <returns>Trả ra true - false</returns>
-        /// CreatedBy: NVD (9/2/2023)
         public override bool IsValid(object? value)
         {
             if(value.ObjToStr() == "")

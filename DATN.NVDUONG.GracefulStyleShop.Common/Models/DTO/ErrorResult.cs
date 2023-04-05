@@ -3,7 +3,6 @@
     /// <summary>
     /// Đối tượng dữ liệu lỗi trả về
     /// </summary>
-    /// CreatdBy : NVD (1/2/2023)
     public class ErrorResult
     {
         #region Contructor
@@ -15,7 +14,6 @@
         /// <param name="userMsg">Message lỗi cho user</param>
         /// <param name="moreInfo">Chi tiết lỗi</param>
         /// <param name="traceId">Id log lỗi</param>
-        /// Created by : NVDuong (1/2/2023)
         public ErrorResult(int errorCode, string devMsg, string userMsg, object moreInfo, dynamic? traceId)
         {
             ErrorCode = errorCode;

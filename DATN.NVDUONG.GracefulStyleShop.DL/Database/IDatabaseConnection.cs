@@ -15,31 +15,30 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <summary>
         /// Mở state kết nối
         /// </summary>
-        /// /// CreatedBy : NVD (7/2/2023)
         void Open();
 
         /// <summary>
         /// Đóng kết nối
         /// </summary>
-        /// /// CreatedBy : NVD (7/2/2023)
+        /// /// 
         void Close();
 
         /// <summary>
         /// Khởi tạo transaction
         /// </summary>
-        /// /// CreatedBy : NVD (7/2/2023)
+        /// /// 
         void BeginTransaction();
 
         /// <summary>
         /// transaction thực thi
         /// </summary>
-        /// /// CreatedBy : NVD (7/2/2023)
+        /// /// 
         void CommitTransaction();
 
         /// <summary>
         /// rollback transaction
         /// </summary>
-        /// /// CreatedBy : NVD (7/2/2023)
+        /// /// 
         void RollbackTransaction();
 
         /// <summary>
@@ -51,7 +50,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="transaction">The transaction to use for this query.</param>
         /// <param name="commandTimeout">Number of seconds before command execution timeout.</param>
         /// <param name="commandType">Is it a stored proc or a batch?</param>
-        /// CreatedBy : NVD (7/2/2023)
+        /// 
         public GridReader QueryMultiple(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null);
 
         /// <summary>
@@ -63,7 +62,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="commandTimeout">Number of seconds before command execution timeout.</param>
         /// <param name="commandType">Is it a stored proc or a batch?</param>
         /// <returns>The number of rows affected.</returns>
-        /// CreatedBy : NVD (7/2/2023)
+        /// 
         public int Execute(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null);
 
         /// <summary>
@@ -75,7 +74,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="commandTimeout">The command timeout (in seconds).</param>
         /// <param name="commandType">The type of command to execute.</param>
         /// <remarks>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</remarks>
-        /// CreatedBy : NVD (7/2/2023)
+        /// 
         public T QueryFirstOrDefault<T>(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null);
 
         /// <summary>
@@ -87,7 +86,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="commandTimeout">The command timeout (in seconds).</param>
         /// <param name="commandType">The type of command to execute.</param>
         /// <remarks>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</remarks>
-        /// CreatedBy : NVD (7/2/2023)
+        /// 
         public object QueryFirstOrDefault(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null);
 
         /// <summary>
@@ -96,7 +95,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="tableName">Tên bảng</param>
         /// <param name="listId">List id</param>
         /// <returns>Số lượng bản ghi được xóa</returns>
-        /// CreatedBy : NVD (11/2/2023)
         public int DeleteRecords(string tableName, List<Guid> listId);
 
         /// <summary>
@@ -105,7 +103,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="tableName">Tên bảng</param>
         /// <param name="dataTable">Dữ liệu bảng</param>
         /// <returns>Số lượng bản ghi được thêm</returns>
-        /// CreatedBy : NVD (11/2/2023)
         public int ImportExcel<T>(List<T> records);
     }
 }
