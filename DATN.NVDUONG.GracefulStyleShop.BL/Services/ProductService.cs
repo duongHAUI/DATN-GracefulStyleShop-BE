@@ -23,9 +23,14 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
             return _productDL.UpdateSold(productId, sold);
         }
 
-        ServiceResult IProductService.Insert(ProductRequest productRequest)
+        /// <summary>
+        /// Xóa nhiều bản ghi
+        /// </summary>
+        /// <param name="listId">ListID</param>
+        /// <returns>Số bản ghi thay đổi</returns>
+        public override bool DeleteRecords(List<Guid> listId)
         {
-            throw new NotImplementedException();
+            return _productDL.DeleteRecords(listId);
         }
     }
 }

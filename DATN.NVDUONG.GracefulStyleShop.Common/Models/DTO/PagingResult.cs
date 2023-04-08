@@ -21,6 +21,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO
         /// Dữ liệu list
         /// </summary>
         /// CreatedBy : Nguyễn Văn Dương (16/1/2023)
-        public List<T> Data { get; set; }
+        public List<Object> Data { get; set; }
     }
 }

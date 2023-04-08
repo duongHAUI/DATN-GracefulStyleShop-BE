@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Dapper.SqlMapper;
 
 namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
 {
-    public interface IProductService: IBaseService<Product>
+    public interface IFile
     {
-        public bool UpdateSold(Guid productId, int sold);
+        public ServiceResult Insert(FileModel fileModel);
     }
 }

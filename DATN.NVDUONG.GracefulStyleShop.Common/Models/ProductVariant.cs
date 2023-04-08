@@ -16,13 +16,13 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
         public Guid ProductId { get; set; }
-        public int ColorId { get; set; }
-        public int SizeId { get; set; }
+        public Guid ColorId { get; set; }
+        public Guid SizeId { get; set; }
         public ProductVariant()
         {
 
         }
-        public ProductVariant(Guid productVariantId, int quantity, decimal price, Guid productId, int colorId, int sizeId)
+        public ProductVariant(Guid productVariantId, int quantity, decimal price, Guid productId, Guid colorId, Guid sizeId)
         {
             this.ProductVariantId = productVariantId;
             this.Quantity = quantity;
@@ -31,7 +31,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
             this.ColorId = colorId;
             this.SizeId = sizeId;
         }
-        public ProductVariant(Guid productVariantId, int quantity, decimal price, DateTime createdAt, DateTime modifiedAt, bool isActive, bool isDelete, Guid productId, int colorId, int sizeId)
+        public ProductVariant(Guid productVariantId, int quantity, decimal price, DateTime createdAt, DateTime modifiedAt, bool isActive, bool isDelete, Guid productId, Guid colorId, Guid sizeId)
         {
             ProductVariantId = productVariantId;
             Quantity = quantity;

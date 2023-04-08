@@ -14,7 +14,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
     public class BaseController<Entity> : MControllerBase
     {
         #region Field
-        private readonly IBaseService<Entity> _baseService;
+        protected IBaseService<Entity> _baseService;
         #endregion
 
         #region Contructor

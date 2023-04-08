@@ -36,6 +36,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         void CommitTransaction();
 
         /// <summary>
+        /// transaction
+        /// </summary>
+        /// /// 
+        MySqlTransaction? Transaction();
+
+        /// <summary>
         /// rollback transaction
         /// </summary>
         /// /// 
@@ -96,6 +102,14 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="listId">List id</param>
         /// <returns>Số lượng bản ghi được xóa</returns>
         public int DeleteRecords(string tableName, List<Guid> listId);
+
+        /// <summary>
+        /// Xóa nhiều bản ghi theo id
+        /// </summary>
+        /// <param name="tableName">Tên bảng</param>
+        /// <param name="listId">List id</param>
+        /// <returns>Số lượng bản ghi được xóa</returns>
+        public int DeleteUpdateRecords(string tableName, List<Guid> listId);
 
         /// <summary>
         /// Import

@@ -22,7 +22,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
     {
         #region Field
         protected Dictionary<string, string> listErrorValidate = new Dictionary<string, string>();
-        private readonly IBaseDL<Entity> _baseDL;
+        protected IBaseDL<Entity> _baseDL;
         #endregion
 
         #region Contructor
@@ -116,7 +116,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// </summary>
         /// <param name="listId">ListID</param>
         /// <returns>Số bản ghi thay đổi</returns>
-        public bool DeleteRecords(List<Guid> listId)
+        public virtual bool DeleteRecords(List<Guid> listId)
         {
             return _baseDL.DeleteRecords(listId);
         }

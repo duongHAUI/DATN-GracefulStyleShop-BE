@@ -24,7 +24,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
     {
         #region Field
         private MySqlConnection? _connection;
-        private MySqlTransaction? _transaction;
+        protected MySqlTransaction? _transaction;
         #endregion
 
         #region Method
@@ -59,6 +59,11 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         public void BeginTransaction()
         {
             _transaction = _connection.BeginTransaction();
+        }
+
+        public MySqlTransaction? Transaction()
+        {
+            return _transaction;
         }
 
         /// <summary>
@@ -160,6 +165,22 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         public int DeleteRecords(string tableName,List<Guid> listId)
         {
             string query = $"delete from {tableName} where {tableName}Id in (@Id)";
+
+            int numberRecoredDeleted = _connection.Execute(query, listId.AsEnumerable().Select(i => new { Id = i }).ToList(), _transaction);
+
+            return numberRecoredDeleted;
+        }
+
+        /// <summary>
+        /// Xóa nhiều theo update
+        /// </summary>
+        /// <param name="tableName">Tên bảng</param>
+        /// <param name="listId">List id</param>
+        /// <returns>Số lượng bản ghi được xóa</returns>
+        /// CreatedBy : NVD (11/2/2023)
+        public int DeleteUpdateRecords(string tableName, List<Guid> listId)
+        {
+            string query = $"Update {tableName} set IsDelete = 1 where {tableName}Id in (@Id)";
 
             int numberRecoredDeleted = _connection.Execute(query, listId.AsEnumerable().Select(i => new { Id = i }).ToList(), _transaction);
 

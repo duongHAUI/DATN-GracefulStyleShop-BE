@@ -1,6 +1,6 @@
 ﻿using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.BL.Services;
-using DATN.NVDUONG.GracefulStyleShop.DL;
+using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using DATN.NVDUONG.GracefulStyleShop.DL.Database;
 using DATN.NVDUONG.GracefulStyleShop.DL.Helpers;
 using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IDatabaseConnection, DatabaseConnection>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDL, ProductDL>();
+builder.Services.AddScoped<IFile, FileService>();
 builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 

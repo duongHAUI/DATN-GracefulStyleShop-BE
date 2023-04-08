@@ -8,13 +8,13 @@ using MySqlConnector;
 using System.Data;
 using System.Reflection;
 
-namespace DATN.NVDUONG.GracefulStyleShop.DL
+namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
 {
     public class BaseDL<Entity> : IBaseDL<Entity>
     {
         #region Field
         protected string tableName;
-        private IDatabaseConnection _databaseConnection;
+        protected IDatabaseConnection _databaseConnection;
         #endregion
 
         #region Contructor
@@ -40,7 +40,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
             try
             {
                 // Tên store produce
-                string storedProducedureName = String.Format(NameProduceConstants.GetByFilter, tableName);
+                string storedProducedureName = string.Format(NameProduceConstants.GetByFilter, tableName);
 
                 var parameters = new DynamicParameters();
                 parameters.Add("@TotalRecords", direction: ParameterDirection.Output);
@@ -58,7 +58,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
 
                 var data = new PagingResult<Entity>()
                 {
-                    Data = result.Read<Entity>().ToList(),
+                    Data = result.Read<object>().ToList(),
                     Total = parameters.Get<int>("@TotalRecords")
                 };
 
@@ -85,7 +85,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
             try
             {
                 // Tên store produce
-                string storedProducedureName = String.Format(NameProduceConstants.GetByCode, tableName);
+                string storedProducedureName = string.Format(NameProduceConstants.GetByCode, tableName);
 
                 // Add param
                 var parameters = new DynamicParameters();
@@ -120,7 +120,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
             try
             {
                 // Tên store produce
-                string storedProducedureName = String.Format(NameProduceConstants.GetByName, tableName);
+                string storedProducedureName = string.Format(NameProduceConstants.GetByName, tableName);
 
                 // Add param
                 var parameters = new DynamicParameters();
@@ -155,7 +155,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
             try
             {
                 // Tên store produce
-                string storedProducedureName = String.Format(NameProduceConstants.GetById, typeof(Entity).Name);
+                string storedProducedureName = string.Format(NameProduceConstants.GetById, typeof(Entity).Name);
 
                 // Thêm parameter
                 var parametes = new DynamicParameters();
@@ -186,12 +186,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
         /// </summary>
         /// <param name="entity">Thông tin nhân viên cần thêm</param>
         /// <returns>true - false</returns>
-        public bool Insert(Entity entity)
+        public virtual bool Insert(Entity entity)
         {
             try
             {
                 // Tên store produce
-                string storedProducedureName = String.Format(NameProduceConstants.Insert, tableName);
+                string storedProducedureName = string.Format(NameProduceConstants.Insert, tableName);
 
                 // Chuẩn bị parameters cho stored produce
                 var parameters = new DynamicParameters();
@@ -231,7 +231,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
             try
             {
                 // Tên store produce
-                string storedProducedureName = String.Format(NameProduceConstants.Update, tableName);
+                string storedProducedureName = string.Format(NameProduceConstants.Update, tableName);
 
                 // Chuẩn bị parameters cho stored produce
                 var parameters = new DynamicParameters();
@@ -265,18 +265,18 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
         /// </summary>
         /// <param name="entityId">Id đối tượng cần xóa</param>
         /// <returns>true - false</returns>
-        public bool DeleteRecords(List<Guid> listGuid)
+        public virtual bool DeleteRecords(List<Guid> listGuid)
         {
             try
             {
                 bool result = true;
 
                 // Tên store produce
-                string storedProducedureName = String.Format(NameProduceConstants.DeleteRecords, typeof(Entity).Name);
+                string storedProducedureName = string.Format(NameProduceConstants.DeleteRecords, typeof(Entity).Name);
 
                 // Thêm parameter
                 var parametes = new DynamicParameters();
-                parametes.Add($"p_{tableName}Ids", String.Join(",",listGuid));
+                parametes.Add($"p_{tableName}Ids", string.Join(",", listGuid));
 
                 // Mở kết nối
                 _databaseConnection.Open();
@@ -318,7 +318,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL
 
                 //Xử lý update dữ liệu số lượng
                 int numberUpdate = _databaseConnection.Execute(query, commandType: CommandType.Text);
-                if(numberUpdate == 0)
+                if (numberUpdate == 0)
                 {
                     return false;
                 }
