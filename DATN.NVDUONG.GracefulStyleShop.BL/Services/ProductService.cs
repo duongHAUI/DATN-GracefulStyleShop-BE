@@ -30,7 +30,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// <returns>Số bản ghi thay đổi</returns>
         public override bool DeleteRecords(List<Guid> listId)
         {
-            return _productDL.DeleteRecords(listId);
+            return _productDL.DeleteUpdateRecords(listId);
         }
     }
 }

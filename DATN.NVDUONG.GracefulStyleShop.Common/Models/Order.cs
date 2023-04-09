@@ -18,25 +18,5 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
         public Guid AddressReceiveId { get; set; }
-        public Order()
-        {
-
-        }
-        public Order(Guid orderId, int quantity, string status)
-        {
-            this.OrderId = orderId;
-            this.Quantity = quantity;
-            this.Status = status;
-        }
-        public Order(Guid orderId, int quantity, string note, string status, string cancelReason, DateTime createdAt, DateTime modifiedAt, bool isActive, bool isDelete, Guid addressReceiveId) : this(orderId, quantity, note)
-        {
-            Status = status;
-            CancelReason = cancelReason;
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
-            IsActive = isActive;
-            IsDelete = isDelete;
-            AddressReceiveId = addressReceiveId;
-        }
     }
 }

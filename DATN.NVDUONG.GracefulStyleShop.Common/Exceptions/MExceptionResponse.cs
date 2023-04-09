@@ -8,7 +8,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common
     /// <summary>
     /// Class bắn lỗi exception
     /// </summary>
-    /// CreatedBy: NVD (1/2/2023)
     public class MExceptionResponse : Exception
     {
         #region Field
@@ -23,7 +22,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common
         /// Contructor 1 đối số
         /// </summary>
         /// <param name="msgError">Lỗi</param>
-        /// CreatedBy: NVD(11/2/2023)
         public MExceptionResponse(string? msgError = null)
         {
             this.msgError = msgError;
@@ -32,7 +30,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common
         /// <summary>
         /// Contructor không đối số
         /// </summary>
-        /// CreatedBy: NVD(11/2/2023)
         public MExceptionResponse() { }
         #endregion
 
@@ -40,13 +37,11 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common
         /// <summary>
         /// Gán lỗi
         /// </summary>
-        /// CreatedBy: NVD (1/2/2023)
         public override string Message => this.msgError;
 
         /// <summary>
         /// Gán chi tiết lỗi
         /// </summary>
-        /// CreatedBy: NVD (1/2/2023)
         public override IDictionary Data => this.objMessageError; 
         #endregion
     }

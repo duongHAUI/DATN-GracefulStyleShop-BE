@@ -13,7 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IDatabaseConnection, DatabaseConnection>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDL, ProductDL>();
-builder.Services.AddScoped<IFile, FileService>();
+builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IFileDL, FileDL>();
 builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 

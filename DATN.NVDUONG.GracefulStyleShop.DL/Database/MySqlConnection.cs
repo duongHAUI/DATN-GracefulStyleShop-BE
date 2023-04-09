@@ -32,7 +32,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// Khởi tạo kết nối
         /// </summary>
         /// <returns>MySqlConnection</returns>
-        /// CreatedBy : NVD (7/2/2023)
         public void Open()
         {
             _connection = new MySqlConnection(DatabaseContext.connectionString);
@@ -42,7 +41,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <summary>
         /// Đóng state kết nối
         /// </summary>
-        /// /// CreatedBy : NVD (7/2/2023)
         public void Close()
         {
             if (_connection != null)
@@ -55,7 +53,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <summary>
         /// transaction khởi tạo
         /// </summary>
-        /// /// CreatedBy : NVD (7/2/2023)
         public void BeginTransaction()
         {
             _transaction = _connection.BeginTransaction();
@@ -69,7 +66,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <summary>
         /// transaction thực thi
         /// </summary>
-        /// /// CreatedBy : NVD (7/2/2023)
         public void CommitTransaction()
         {
             _transaction.Commit();
@@ -78,7 +74,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <summary>
         /// transaction rollback
         /// </summary>
-        /// /// CreatedBy : NVD (7/2/2023)
         public void RollbackTransaction()
         {
             if(_transaction != null)
@@ -95,7 +90,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="commandTimeout">Number of seconds before command execution timeout.</param>
         /// <param name="commandType">Is it a stored proc or a batch?</param>
         /// <returns>The number of rows affected.</returns>
-        /// CreatedBy : NVD (7/2/2023)
         public GridReader QueryMultiple(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
 
@@ -113,7 +107,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="commandTimeout">The command timeout (in seconds).</param>
         /// <param name="commandType">The type of command to execute.</param>
         /// <remarks>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</remarks>
-        /// CreatedBy : NVD (7/2/2023)
         public T QueryFirstOrDefault<T>(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             T response = _connection.QueryFirstOrDefault<T>(sql, param, _transaction, commandTimeout, commandType);
@@ -130,7 +123,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="commandTimeout">The command timeout (in seconds).</param>
         /// <param name="commandType">The type of command to execute.</param>
         /// <remarks>Note: the row can be accessed via "dynamic", or by casting to an IDictionary&lt;string,object&gt;</remarks>
-        /// CreatedBy : NVD (7/2/2023)
         public object QueryFirstOrDefault(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             var response = _connection.QueryFirstOrDefault(sql, param, _transaction, commandTimeout, commandType);
@@ -147,7 +139,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="commandTimeout">Number of seconds before command execution timeout.</param>
         /// <param name="commandType">Is it a stored proc or a batch?</param>
         /// <returns>The number of rows affected.</returns>
-        /// CreatedBy : NVD (7/2/2023)
         public int Execute(string sql, object? param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             var response = _connection.Execute(sql, param, _transaction, commandTimeout, commandType);
@@ -161,7 +152,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="tableName">Tên bảng</param>
         /// <param name="listId">List id</param>
         /// <returns>Số lượng bản ghi được xóa</returns>
-        /// CreatedBy : NVD (11/2/2023)
         public int DeleteRecords(string tableName,List<Guid> listId)
         {
             string query = $"delete from {tableName} where {tableName}Id in (@Id)";
@@ -177,7 +167,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="tableName">Tên bảng</param>
         /// <param name="listId">List id</param>
         /// <returns>Số lượng bản ghi được xóa</returns>
-        /// CreatedBy : NVD (11/2/2023)
         public int DeleteUpdateRecords(string tableName, List<Guid> listId)
         {
             string query = $"Update {tableName} set IsDelete = 1 where {tableName}Id in (@Id)";
@@ -193,7 +182,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="tableName">Tên bảng</param>
         /// <param name="dataTable">Dữ liệu bảng</param>
         /// <returns>Số lượng bản ghi được thêm</returns>
-        /// CreatedBy : NVD (11/2/2023)
         public int ImportExcel<T>(List<T> records)
         {
             try

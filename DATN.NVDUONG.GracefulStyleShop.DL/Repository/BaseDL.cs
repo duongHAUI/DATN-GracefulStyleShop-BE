@@ -306,6 +306,54 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
             }
         }
 
+
+        /// <summary>
+        /// Xóa bản ghi
+        /// </summary>
+        /// <param name="entityId">Id đối tượng cần xóa</param>
+        /// <returns>true - false</returns>
+        public virtual bool DeleteUpdateRecords(List<Guid> listGuid)
+        {
+            try
+            {
+                bool result = true;
+
+                // Tên store produce
+                string storedProducedureName = string.Format(NameProduceConstants.DeleteRecords, tableName);
+
+                // Thêm parameter
+                var parametes = new DynamicParameters();
+                parametes.Add($"p_{tableName}Ids", string.Join(",", listGuid));
+
+                // Mở kết nối
+                _databaseConnection.Open();
+                _databaseConnection.BeginTransaction();
+
+                // Xử lý xóa dữ liệu trong stored
+                int numberDeleted = _databaseConnection.DeleteUpdateRecords(tableName, listGuid);
+
+                if (numberDeleted == listGuid.Count) _databaseConnection.CommitTransaction();
+                else
+                {
+                    _databaseConnection.RollbackTransaction();
+                    result = false;
+                }
+
+                // Đóng kết nối
+                _databaseConnection.Close();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                _databaseConnection.RollbackTransaction();
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
+
+
         public bool UpdateQuantity(Guid id, int quantity)
         {
             try

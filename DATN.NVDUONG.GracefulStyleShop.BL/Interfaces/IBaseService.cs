@@ -11,7 +11,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
     /// Base Service
     /// </summary>
     /// <typeparam name="Entity"></typeparam>
-    /// CreatedBy : NVDuong (2/2/2023)
     public interface IBaseService<Entity>
     {
         #region Method
@@ -21,7 +20,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
         /// </summary>
         /// <param name="parameters">Param bộ lọc truyền vào truyền vào</param>
         /// <returns>Danh sách đối tượng</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public object GetByFilter(object parameters);
 
         /// <summary>
@@ -29,14 +27,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Đối tượng</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public Entity GetById(Guid id);
 
         /// <summary>
         /// Thêm vào dữ liệu 
         /// </summary>
         /// <param name="enity"></param>
-        /// CreatedBy : NVDuong (2/2/2023)
         public ServiceResult Insert(Entity enity);
 
         /// <summary>
@@ -44,7 +40,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
         /// </summary>
         /// <param name="enity"></param>
         /// <returns></returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public ServiceResult Update(Guid id, Entity enity);
 
         /// <summary>
@@ -52,7 +47,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
         /// </summary>
         /// <param name="listId">ListID</param>
         /// <returns>Số bản ghi thay đổi</returns>
-        /// CreatedBy : NVDuong (2/2/2023)
         public bool DeleteRecords(List<Guid> listId);
         public bool UpdateQuantity(Guid id, int quantity);
         #endregion

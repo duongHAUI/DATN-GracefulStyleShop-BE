@@ -24,4 +24,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public Guid TypeId { get; set; }
         public Guid BrandId { get; set; }
     }
+    public class ProductRespones : Product
+    {
+        public List<Image> Images { get; set; }
+    }
 }
