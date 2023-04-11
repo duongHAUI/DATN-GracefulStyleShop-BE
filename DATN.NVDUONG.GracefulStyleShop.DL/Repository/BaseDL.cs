@@ -35,7 +35,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
         /// </summary>
         /// <param name="parametersFilter">Param bộ lọc truyền vào truyền vào</param>
         /// <returns>Danh sách đối tượng</returns>
-        public PagingResult<Entity> GetByFilter(object parametersFilter)
+        public virtual PagingResult<Entity> GetByFilter(object parametersFilter)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
 
                 var data = new PagingResult<Entity>()
                 {
-                    Data = result.Read<object>().ToList(),
+                    Data = result.Read<Entity>().ToList(),
                     Total = parameters.Get<int>("@TotalRecords")
                 };
 
@@ -150,7 +150,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
         /// </summary>
         /// <param name="id">Id nhân viên</param>
         /// <returns>Thông tin 1 nhân viên</returns>
-        public Entity GetById(Guid id)
+        public virtual Entity GetById(Guid id)
         {
             try
             {

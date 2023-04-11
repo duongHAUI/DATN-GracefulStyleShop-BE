@@ -1,0 +1,132 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\061c6493-3586-4bda-b044-9e5559d599c4_xay dung website ban quan ao tre em cho shop thoi trang kico full source code 154915.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DATN.NVDUONG.GracefulStyleShop.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DATN.NVDUONG.GracefulStyleShop.API</BasePath>
+      <RelativePath>images/products/061c6493-3586-4bda-b044-9e5559d599c4_xay dung website ban quan ao tre em cho shop thoi trang kico full source code 154915.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\061c6493-3586-4bda-b044-9e5559d599c4_xay dung website ban quan ao tre em cho shop thoi trang kico full source code 154915.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\190dac51-a3c8-4088-b170-e1cc04cf1ec3_xay dung website ban quan ao tre em cho shop thoi trang kico full source code 154915.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DATN.NVDUONG.GracefulStyleShop.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DATN.NVDUONG.GracefulStyleShop.API</BasePath>
+      <RelativePath>images/products/190dac51-a3c8-4088-b170-e1cc04cf1ec3_xay dung website ban quan ao tre em cho shop thoi trang kico full source code 154915.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\190dac51-a3c8-4088-b170-e1cc04cf1ec3_xay dung website ban quan ao tre em cho shop thoi trang kico full source code 154915.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\25e809d3-07d3-4968-8fb6-baa52c9db834_z3963315528673_9d28407358304987898eace155ba3c94.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DATN.NVDUONG.GracefulStyleShop.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DATN.NVDUONG.GracefulStyleShop.API</BasePath>
+      <RelativePath>images/products/25e809d3-07d3-4968-8fb6-baa52c9db834_z3963315528673_9d28407358304987898eace155ba3c94.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\25e809d3-07d3-4968-8fb6-baa52c9db834_z3963315528673_9d28407358304987898eace155ba3c94.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\51d7e9ed-f7d6-44ee-88c2-661d50b65f5e_z4175970144002_77c5e6350674d378745843cbf5151eec.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DATN.NVDUONG.GracefulStyleShop.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DATN.NVDUONG.GracefulStyleShop.API</BasePath>
+      <RelativePath>images/products/51d7e9ed-f7d6-44ee-88c2-661d50b65f5e_z4175970144002_77c5e6350674d378745843cbf5151eec.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\51d7e9ed-f7d6-44ee-88c2-661d50b65f5e_z4175970144002_77c5e6350674d378745843cbf5151eec.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\8784d5d9-343a-4919-961c-b6bb34d78643_z3963315528673_9d28407358304987898eace155ba3c94.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DATN.NVDUONG.GracefulStyleShop.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DATN.NVDUONG.GracefulStyleShop.API</BasePath>
+      <RelativePath>images/products/8784d5d9-343a-4919-961c-b6bb34d78643_z3963315528673_9d28407358304987898eace155ba3c94.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\8784d5d9-343a-4919-961c-b6bb34d78643_z3963315528673_9d28407358304987898eace155ba3c94.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\d761a217-8433-4417-8f1e-40a697b250ee_z4175970144002_77c5e6350674d378745843cbf5151eec.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DATN.NVDUONG.GracefulStyleShop.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DATN.NVDUONG.GracefulStyleShop.API</BasePath>
+      <RelativePath>images/products/d761a217-8433-4417-8f1e-40a697b250ee_z4175970144002_77c5e6350674d378745843cbf5151eec.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\d761a217-8433-4417-8f1e-40a697b250ee_z4175970144002_77c5e6350674d378745843cbf5151eec.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\e7a76db6-74ec-4424-9407-e44e84433682_z3963315528673_9d28407358304987898eace155ba3c94.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DATN.NVDUONG.GracefulStyleShop.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DATN.NVDUONG.GracefulStyleShop.API</BasePath>
+      <RelativePath>images/products/e7a76db6-74ec-4424-9407-e44e84433682_z3963315528673_9d28407358304987898eace155ba3c94.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\e7a76db6-74ec-4424-9407-e44e84433682_z3963315528673_9d28407358304987898eace155ba3c94.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\fd18edf7-43f2-48ab-8969-9ad7dde97ba4_maxresdefault.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DATN.NVDUONG.GracefulStyleShop.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DATN.NVDUONG.GracefulStyleShop.API</BasePath>
+      <RelativePath>images/products/fd18edf7-43f2-48ab-8969-9ad7dde97ba4_maxresdefault.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\fd18edf7-43f2-48ab-8969-9ad7dde97ba4_maxresdefault.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+  </ItemGroup>
+</Project>

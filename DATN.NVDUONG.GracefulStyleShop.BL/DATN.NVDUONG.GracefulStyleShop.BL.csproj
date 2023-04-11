@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.20.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DATN.NVDUONG.GracefulStyleShop.Common\DATN.NVDUONG.GracefulStyleShop.Common.csproj" />
     <ProjectReference Include="..\DATN.NVDUONG.GracefulStyleShop.DL\DATN.NVDUONG.GracefulStyleShop.DL.csproj" />
   </ItemGroup>

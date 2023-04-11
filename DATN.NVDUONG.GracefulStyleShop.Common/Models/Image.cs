@@ -11,6 +11,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public Guid ImageId { get; set; }
         public string ImageName { get; set; }
         public string ImageLink { get; set; }
-        public Guid ProductId { get; set; }
+        public Guid ObjectId { get; set; }
+        public int IsDefault { get; set; }
     }
 }

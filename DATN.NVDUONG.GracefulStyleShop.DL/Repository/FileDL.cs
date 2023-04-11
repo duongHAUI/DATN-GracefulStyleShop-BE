@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DATN.NVDUONG.GracefulStyleShop.Common;
 using DATN.NVDUONG.GracefulStyleShop.Common.Constants;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using DATN.NVDUONG.GracefulStyleShop.DL.Database;
@@ -6,6 +7,7 @@ using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -32,38 +34,65 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
 
         public bool DeleteFile(List<Guid> listId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string query = $"Delete from Image where ImageId in (@Id)";
+                _databaseConnection.Open();
+                _databaseConnection.BeginTransaction();
+                int numberRecoredDeleted = _databaseConnection.Connection().Execute(query, listId.AsEnumerable().Select(i => new { Id = i }).ToList(), _databaseConnection.Transaction());
+                if (numberRecoredDeleted == 0) _databaseConnection.RollbackTransaction();
+                else _databaseConnection.CommitTransaction();
+                // Đóng kết nối
+                _databaseConnection.Close();
+
+                return numberRecoredDeleted > 0 ? true : false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                _databaseConnection.RollbackTransaction();
+                // Đóng kết nối
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
         }
 
-        public bool Insert(Image image)
+        public List<Image> GetFileByObjectId(Guid id)
         {
-            // Tên store produce
-            string storedProducedureName = string.Format(NameProduceConstants.Insert, "Image");
-
-            // Chuẩn bị parameters cho stored produce
-            var parameters = new DynamicParameters();
-            foreach (PropertyInfo propertyInfo in image.GetType().GetProperties())
+            try
             {
-                // Add parameters
-                parameters.Add("p_" + propertyInfo.Name, propertyInfo.GetValue(image));
-            }
+                // Tên store produce
+                string query = $"select * from Image where ObjectId = '{id}'";
 
+                // Mở kết nối
+                _databaseConnection.Open();
+
+                // Xử lý lấy dữ liệu trong stored
+                var result = _databaseConnection.Connection().Query<Image>(query);
+
+                // Đóng kết nối
+                _databaseConnection.Close();
+
+                return result.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Đóng kết nối
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
+
+        public bool Insert(List<Image> images)
+        {
             // Mở kết nối
             _databaseConnection.Open();
 
-            // Xử lý thêm dữ liệu trong stored
-            int res = _databaseConnection.Execute(storedProducedureName, param: parameters, commandType: CommandType.StoredProcedure);
-
             // Đóng kết nối
-            _databaseConnection.Close();
+            int result = _databaseConnection.ImportExcel<Image>(images);
 
-            //Trả kết quả về
-            return res == 0 ? false : true;
-        }
-
-        List<Image> IFileDL.GetFileByObjectId(Guid id)
-        {
-            throw new NotImplementedException();
+            return result > 0 ? true : false;
         }
         #endregion
     }

@@ -1,4 +1,5 @@
-﻿using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
+﻿using CloudinaryDotNet;
+using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.BL.Services;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using DATN.NVDUONG.GracefulStyleShop.DL.Database;
@@ -6,6 +7,7 @@ using DATN.NVDUONG.GracefulStyleShop.DL.Helpers;
 using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.DL.Repository;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Principal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +38,12 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 
 // Config respone để không chuyển hết về chữ thường
 builder.Services.AddControllers().AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);
+
+builder.Services.AddSingleton(new Cloudinary(new Account(
+    "dqywrcgrr",
+    "511812445438653",
+    "LaDWdP21mxTWyhZ2d5c08LkVYsk"
+)));
 
 // Get connectionString
 DatabaseContext.connectionString = builder.Configuration.GetConnectionString("MySqlLocal");

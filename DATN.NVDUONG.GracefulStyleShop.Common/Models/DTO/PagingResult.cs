@@ -18,6 +18,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO
         /// <summary>
         /// Dữ liệu list
         /// </summary>
-        public List<Object> Data { get; set; }
+        public List<T> Data { get; set; }
     }
 }

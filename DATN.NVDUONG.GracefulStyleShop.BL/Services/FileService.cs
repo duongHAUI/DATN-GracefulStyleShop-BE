@@ -1,82 +1,81 @@
-﻿using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
+﻿using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO;
 using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Dapper.SqlMapper;
+using System.IO;
+using System.Net;
+using static System.Net.WebRequestMethods;
 
 namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
 {
     public class FileService : IFileService
     {
         private IFileDL _fileDL;
-        public FileService(IFileDL fileDL)
+        private readonly Cloudinary _cloudinary;
+        public FileService(IFileDL fileDL, Cloudinary cloudinary)
         {
             _fileDL = fileDL;
+            _cloudinary = cloudinary;
         }
 
         public ServiceResult Insert(FileModel fileModel)
         {
-
+            bool res = true;
             var listImageDelete = new List<Guid>();
             var listImageinsert = new List<Image>();
+
             //// lấy các ảnh hiện có 
-            //List<Image> listImage = _fileDL.GetFileByObjectId(fileModel.ObjectId);
+            List<Image> listImage = _fileDL.GetFileByObjectId(fileModel.ObjectId);
 
-            //if (fileModel.Images.Count == 0)
-            //{
-            //    listImageDelete = listImage.Select(x => x.ImageId).ToList();
-            //}
-            //else
-            //{
-            //    listImage.ForEach(image =>
-            //    {
-            //        if (fileModel.Images.Where(x => x == image.ImageId).Count() == 0)
-            //        {
-            //            listImageDelete.Add(image.ImageId);
-            //        }
-            //    });
-            //}
+            if (listImage.Count > fileModel.Images.Count)
+            {
+                listImage.ForEach(image =>
+                {
+                    if (fileModel.Images.Where(x => x == image.ImageId).Count() == 0)
+                    {
+                        listImageDelete.Add(image.ImageId);
+                    }
+                });
+            }
 
-            //// xóa
-            //var res = _fileDL.DeleteFile(listImageDelete);
+            if (listImageDelete.Count > 0)
+            {
+                //// xóa tỏng db
+                res = _fileDL.DeleteFile(listImageDelete);
+                // xóa trên cloud
+                var uploadResult = _cloudinary.DeleteResources(listImageDelete.Select(x => x.ToString()).ToArray());
+            }
 
-            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(),"images");
-            if (!Directory.Exists(uploadsFolder))
-                Directory.CreateDirectory(uploadsFolder);
-
+            var uploadParamsList = new List<ImageUploadParams>();
             foreach (var file in fileModel.Files)
             {
                 var newGuid = Guid.NewGuid();
-                // Tạo tên file mới để tránh bị trùng lặp
-                var uniqueFileName = newGuid.ToString() + "_" + file.FileName;
-
-                // Lưu ảnh vào thư mục uploads/images
-                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                var uploadParams = new ImageUploadParams()
                 {
-                    file.CopyToAsync(stream);
-                }
-
+                    File = new FileDescription(file.FileName, file.OpenReadStream()),
+                    PublicId = newGuid.ToString(),
+                };
+                var uploadResult = _cloudinary.Upload(uploadParams);
                 listImageinsert.Add(new Image()
                 {
                     ImageId = newGuid,
-                    ProductId = fileModel.ObjectId,
-                    ImageLink = filePath,
+                    ObjectId = fileModel.ObjectId,
+                    ImageLink = uploadResult.Uri.AbsoluteUri,
                     ImageName = file.FileName
                 });
             }
 
-            foreach (var item in listImageinsert)
+            if (listImageinsert.Count > 0)
             {
-                _fileDL.Insert(item);
+                //// thêm vào đb
+                res = _fileDL.Insert(listImageinsert);
             }
 
-            return new ServiceResult();
+            if (res) return new ServiceResult(res);
+
+            return new ServiceResult("Lỗi insert ảnh");
         }
     }
 }

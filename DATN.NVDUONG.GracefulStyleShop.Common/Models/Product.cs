@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
 {
-    public class Product
+    public class Product : Image
     {
         public Guid ProductId { get; set; }
         public string ProductCode { get; set; }
@@ -23,9 +25,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public bool IsDelete { get; set; }
         public Guid TypeId { get; set; }
         public Guid BrandId { get; set; }
-    }
-    public class ProductRespones : Product
-    {
         public List<Image> Images { get; set; }
     }
 }

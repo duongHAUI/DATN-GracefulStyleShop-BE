@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "56b9bUHT3i1mZzVP1LlkTNymemMcoR/z7Jn0pKMXG+k=",
+  "Hash": "39e/CopbiV80m2ivv0kIMbBzGBUKv97lyZUtBYKUzBc=",
   "Source": "DATN.NVDUONG.GracefulStyleShop.API",
   "BasePath": "_content/DATN.NVDUONG.GracefulStyleShop.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "DATN.NVDUONG.GracefulStyleShop.API\\wwwroot",
+      "Source": "DATN.NVDUONG.GracefulStyleShop.API",
+      "ContentRoot": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.API\\wwwroot\\",
+      "BasePath": "_content/DATN.NVDUONG.GracefulStyleShop.API",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

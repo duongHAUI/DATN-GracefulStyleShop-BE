@@ -29,6 +29,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// /// 
         void BeginTransaction();
 
+        MySqlConnection? Connection();
+
         /// <summary>
         /// transaction thực thi
         /// </summary>
@@ -120,3 +122,4 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         public int ImportExcel<T>(List<T> records);
     }
 }
+

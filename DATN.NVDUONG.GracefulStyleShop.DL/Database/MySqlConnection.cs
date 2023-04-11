@@ -1,17 +1,12 @@
 ﻿using Dapper;
 using DATN.NVDUONG.GracefulStyleShop.Common;
+using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using DATN.NVDUONG.GracefulStyleShop.Commons;
 using DATN.NVDUONG.GracefulStyleShop.DL.Helpers;
 using MySqlConnector;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
 using static Dapper.SqlMapper;
 
 namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
@@ -71,12 +66,17 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
             _transaction.Commit();
         }
 
+        public MySqlConnection? Connection()
+        {
+            return _connection;
+        }
+
         /// <summary>
         /// transaction rollback
         /// </summary>
         public void RollbackTransaction()
         {
-            if(_transaction != null)
+            if (_transaction != null)
             {
                 _transaction.Rollback();
             }
@@ -98,6 +98,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
             return response;
         }
 
+
         /// <summary>
         /// Return a dynamic object with properties matching the columns.
         /// </summary>
@@ -110,7 +111,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         public T QueryFirstOrDefault<T>(string sql, object? param = null, IDbTransaction? transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             T response = _connection.QueryFirstOrDefault<T>(sql, param, _transaction, commandTimeout, commandType);
- 
+
             return response;
         }
 
@@ -152,7 +153,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="tableName">Tên bảng</param>
         /// <param name="listId">List id</param>
         /// <returns>Số lượng bản ghi được xóa</returns>
-        public int DeleteRecords(string tableName,List<Guid> listId)
+        public int DeleteRecords(string tableName, List<Guid> listId)
         {
             string query = $"delete from {tableName} where {tableName}Id in (@Id)";
 
@@ -229,9 +230,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
                                 }
                                 else listColumnRow.Add("null");
                                 continue;
-                            }else if(property.PropertyType == typeof(long?) || property.PropertyType == typeof(long))
+                            }
+                            else if (property.PropertyType == typeof(long?) || property.PropertyType == typeof(long))
                             {
-                                if(value is null) listColumnRow.Add("null");
+                                if (value is null) listColumnRow.Add("null");
                                 continue;
                             }
 
@@ -239,7 +241,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
                         }
 
                     }
-                    string queryItem ="(" + String.Join(", ", listColumnRow) + ")";
+                    string queryItem = "(" + String.Join(", ", listColumnRow) + ")";
                     queryListItem.Add(queryItem);
                 }
 
@@ -249,21 +251,23 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
                 Open();
                 BeginTransaction();
 
-                numberRecoredImportSuccess = _connection.Execute(query,null, _transaction);
-                if(numberRecoredImportSuccess != records.Count) RollbackTransaction();
+                numberRecoredImportSuccess = _connection.Execute(query, null, _transaction);
+                if (numberRecoredImportSuccess != records.Count) RollbackTransaction();
                 CommitTransaction();
 
                 // Đóng kết nối
                 Close();
 
                 return numberRecoredImportSuccess;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 RollbackTransaction();
                 Close();
                 throw new MExceptionResponse(ex.Message);
             }
         }
+
         #endregion
     }
 }
