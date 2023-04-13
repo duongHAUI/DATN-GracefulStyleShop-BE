@@ -175,6 +175,11 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
 
             newId = entity.GetType().GetProperty($"{typeof(Entity).Name}Id").GetValue(entity, null);
 
+            return processPropertyCustom(entity);
+        }
+
+        protected virtual Entity processPropertyCustom(Entity entity)
+        {
             return entity;
         }
 
