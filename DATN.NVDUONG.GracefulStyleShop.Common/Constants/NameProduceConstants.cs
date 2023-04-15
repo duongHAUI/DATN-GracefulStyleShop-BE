@@ -78,5 +78,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Constants
         /// </summary>
         /// 
         public static string DeleteRecords = "Proc_{0}_DeleteRecords";
+
+        public static string LockUpRecords = "Proc_{0}_DeleteRecords";
     }
 }

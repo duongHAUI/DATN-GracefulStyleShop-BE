@@ -3,9 +3,7 @@ using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.Common;
 using DATN.NVDUONG.GracefulStyleShop.Common.Enums;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
 {
@@ -145,6 +143,30 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
             {
                 // Xử lý
                 bool result = _baseService.DeleteRecords(listId);
+
+                return StatusCode(StatusCodes.Status200OK, result);
+            }
+            catch (MExceptionResponse ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Bắn lỗi exeption
+                return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
+            }
+        }
+
+        /// <summary>
+        /// Khóa 
+        /// </summary>
+        /// <param name="id">ID muốn xóa</param>
+        /// <returns>ID đã xóa thành công</returns>
+        [HttpPost]
+        [Route("Lock-Up")]
+        public IActionResult LockUpRecords([FromBody] List<Guid> listId)
+        {
+            try
+            {
+                // Xử lý
+                bool result = _baseService.LockUpRecords(listId);
 
                 return StatusCode(StatusCodes.Status200OK, result);
             }

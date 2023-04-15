@@ -104,6 +104,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="listId">List id</param>
         /// <returns>Số lượng bản ghi được xóa</returns>
         public int DeleteRecords(string tableName, List<Guid> listId);
+        public int LockUpRecords(string tableName, List<Guid> listId);
 
         /// <summary>
         /// Xóa nhiều bản ghi theo id

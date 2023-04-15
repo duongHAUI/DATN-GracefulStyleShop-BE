@@ -17,23 +17,5 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public DateTime ModifiedAt { get; set; }
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
-        public Supplier()
-        {
-
-        }
-        public Supplier(Guid supplierId, string supplierName)
-        {
-            this.SupplierId = supplierId;
-            this.SupplierName = supplierName;
-        }
-        public Supplier(Guid supplierId, string supplierName, string phone, string address, DateTime createdAt, DateTime modifiedAt, bool isActive, bool isDelete) : this(supplierId, supplierName)
-        {
-            Phone = phone;
-            Address = address;
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
-            IsActive = isActive;
-            IsDelete = isDelete;
-        }
     }
 }

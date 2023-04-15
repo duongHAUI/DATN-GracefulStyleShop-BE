@@ -382,6 +382,38 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 throw new MExceptionResponse(ex.Message);
             }
         }
+
+
+        public bool LockUpRecords(List<Guid> listGuid)
+        {
+            try
+            {
+                bool result = true;
+
+                _databaseConnection.Open();
+                _databaseConnection.BeginTransaction();
+                // Xử lý xóa dữ liệu trong stored
+                int numberDeleted = _databaseConnection.LockUpRecords(tableName, listGuid);
+
+                if (numberDeleted == listGuid.Count) _databaseConnection.CommitTransaction();
+                else
+                {
+                    _databaseConnection.RollbackTransaction();
+                    result = false;
+                }
+                // Đóng kết nối
+                _databaseConnection.Close();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                _databaseConnection.RollbackTransaction();
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
         #endregion
     }
 }

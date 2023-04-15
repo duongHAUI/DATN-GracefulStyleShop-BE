@@ -57,6 +57,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Interfaces
         /// <param name="listId">ListID</param>
         /// <returns>Số bản ghi thay đổi</returns>
         public bool DeleteRecords(List<Guid> listId);
+        public bool LockUpRecords(List<Guid> listId);
 
         public bool DeleteUpdateRecords(List<Guid> listId);
         /// <summary>

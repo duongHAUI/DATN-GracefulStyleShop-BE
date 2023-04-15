@@ -178,6 +178,21 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         }
 
         /// <summary>
+        /// Khoa
+        /// </summary>
+        /// <param name="tableName">Tên bảng</param>
+        /// <param name="listId">List id</param>
+        /// <returns>Số lượng bản ghi được xóa</returns>
+        public int LockUpRecords(string tableName, List<Guid> listId)
+        {
+            string query = $"Update {tableName} set IsActive = !IsActive where {tableName}Id in (@Id)";
+
+            int numberRecoredDeleted = _connection.Execute(query, listId.AsEnumerable().Select(i => new { Id = i }).ToList(), _transaction);
+
+            return numberRecoredDeleted;
+        }
+
+        /// <summary>
         /// Import
         /// </summary>
         /// <param name="tableName">Tên bảng</param>

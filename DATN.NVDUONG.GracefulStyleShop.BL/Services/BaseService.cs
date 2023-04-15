@@ -110,17 +110,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
 
             return result;
         }
-
-        /// <summary>
-        /// Xóa nhiều bản ghi
-        /// </summary>
-        /// <param name="listId">ListID</param>
-        /// <returns>Số bản ghi thay đổi</returns>
-        public virtual bool DeleteRecords(List<Guid> listId)
-        {
-            return _baseDL.DeleteRecords(listId);
-        }
-
         /// <summary>
         /// Kiem tra dữ liệu đầu vào hợp lệ
         /// </summary>
@@ -192,6 +181,20 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         public bool UpdateQuantity(Guid id, int quantity)
         {
             return _baseDL.UpdateQuantity(id, quantity);
+        }
+
+        /// <summary>
+        /// Khóa nhiều bản ghi
+        /// </summary>
+        /// <param name="listId">ListID</param>
+        /// <returns>Số bản ghi thay đổi</returns>
+        public virtual bool DeleteRecords(List<Guid> listId)
+        {
+            return _baseDL.DeleteRecords(listId);
+        }
+        public bool LockUpRecords(List<Guid> listId)
+        {
+            return _baseDL.LockUpRecords(listId);
         }
         #endregion
     }

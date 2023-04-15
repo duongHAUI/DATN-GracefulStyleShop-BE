@@ -17,14 +17,14 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         {
         }
 
-        /// <summary>
-        /// Xóa nhiều bản ghi
-        /// </summary>
-        /// <param name="listId">ListID</param>
-        /// <returns>Số bản ghi thay đổi</returns>
-        public override bool DeleteRecords(List<Guid> listId)
-        {
-            return _baseDL.DeleteUpdateRecords(listId);
-        }
+        ///// <summary>
+        ///// Xóa nhiều bản ghi
+        ///// </summary>
+        ///// <param name="listId">ListID</param>
+        ///// <returns>Số bản ghi thay đổi</returns>
+        //public override bool DeleteRecords(List<Guid> listId)
+        //{
+        //    return _baseDL.DeleteUpdateRecords(listId);
+        //}
     }
 }

@@ -15,8 +15,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public string CancelReason { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsDelete { get; set; }
         public Guid AddressReceiveId { get; set; }
+        public Guid ShipmentId { get; set; }
     }
 }
