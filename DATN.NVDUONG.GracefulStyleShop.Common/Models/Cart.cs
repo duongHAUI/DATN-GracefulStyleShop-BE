@@ -10,29 +10,22 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
     {
         public Guid CartId { get; set; }
         public int Quantity { get; set; }
+        public decimal PriceSale { get; set; }
+        public int Discount { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
         public Guid CustomerId { get; set; }
         public Guid ProductVariantId { get; set; }
-        public Cart()
+        public Guid ProductId { get; set; }
+        public string ProductName { get; set; }
+        public string ColorName { get; set; }
+        public string SizeCode { get; set; }
+        public decimal TotalPrice
         {
-
-        }
-        public Cart(Guid cartId, int quantity, Guid customerId, Guid productVariantId)
-        {
-            this.CartId = cartId;
-            this.Quantity = quantity;
-            this.CustomerId = customerId;
-            this.ProductVariantId = productVariantId;
-        }
-        public Cart(Guid cartId, int quantity, DateTime createdAt, DateTime modifiedAt, Guid customerId, Guid productVariantId)
-        {
-            CartId = cartId;
-            Quantity = quantity;
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
-            CustomerId = customerId;
-            ProductVariantId = productVariantId;
+            get
+            {
+                return Quantity * PriceSale * (decimal)(1 - Discount * 0.01);
+            }
         }
     }
 }

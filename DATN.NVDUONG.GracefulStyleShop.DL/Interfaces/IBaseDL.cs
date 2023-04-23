@@ -14,7 +14,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Interfaces
         /// </summary>
         /// <param name="parameters">Param bộ lọc truyền vào truyền vào</param>
         /// <returns>Danh sách đối tượng</returns>
-        public PagingResult<Entity> GetByFilter(object parameters);
+        public PagingResult<Entity> GetByFilter(dynamic parameters);
 
         /// <summary>
         /// Lấy dữ liệu theo ID

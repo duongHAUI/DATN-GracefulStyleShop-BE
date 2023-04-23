@@ -2,6 +2,8 @@
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO;
 using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
+using DATN.NVDUONG.GracefulStyleShop.DL.Repository;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,16 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         public ProductService(IProductDL productDL) : base(productDL)
         {
             _productDL = productDL;
+        }
+
+        public object GetByFilterDetail(object parameters)
+        {
+            return _productDL.GetByFilterDetail(parameters);
+        }
+
+        public object GetByIDDetail(Guid id)
+        {
+            return _productDL.GetByIDDetail(id);
         }
 
         public bool UpdateSold(Guid productId, int sold)

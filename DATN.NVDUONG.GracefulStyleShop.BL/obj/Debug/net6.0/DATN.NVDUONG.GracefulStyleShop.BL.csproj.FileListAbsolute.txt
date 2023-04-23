@@ -3,11 +3,6 @@ F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.BL\obj\Deb
 F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.AssemblyInfoInputs.cache
 F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.AssemblyInfo.cs
 F:\DATN\DATN.NVDUONG.GracefulStyleShop\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.csproj.CoreCompileInputs.cache
-F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.csproj.AssemblyReference.cache
-F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.GeneratedMSBuildEditorConfig.editorconfig
-F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.AssemblyInfoInputs.cache
-F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.AssemblyInfo.cs
-F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.csproj.CoreCompileInputs.cache
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\bin\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.deps.json
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\bin\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.dll
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\bin\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.pdb
@@ -15,6 +10,11 @@ F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\bin\Debug\ne
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\bin\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.DL.dll
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\bin\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.Common.pdb
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\bin\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.DL.pdb
+F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.csproj.AssemblyReference.cache
+F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.GeneratedMSBuildEditorConfig.editorconfig
+F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.AssemblyInfoInputs.cache
+F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.AssemblyInfo.cs
+F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.csproj.CoreCompileInputs.cache
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.csproj.CopyComplete
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.BL.dll
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.BL\obj\Debug\net6.0\refint\DATN.NVDUONG.GracefulStyleShop.BL.dll

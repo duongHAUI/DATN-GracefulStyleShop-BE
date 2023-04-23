@@ -18,6 +18,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Constants
         /// </summary>
         /// 
         public static string GetByFilter = "Proc_{0}_GetByFilter";
+        public static string GetByFilterDetail = "Proc_{0}_GetByFilterDetail";
 
         /// <summary>
         // Store lấy mã code mới
@@ -36,6 +37,9 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Constants
         /// </summary>
         /// 
         public static string GetById = "Proc_{0}_GetById";
+        public static string GetByToken = "Proc_{0}_GetByToken";
+        public static string GetByEmail = "Proc_{0}_GetByEmail";
+        public static string GetByIdDetail = "Proc_{0}_GetByIdDetail";
 
         /// <summary>
         // Store lấy đối tượng theo số cmnd

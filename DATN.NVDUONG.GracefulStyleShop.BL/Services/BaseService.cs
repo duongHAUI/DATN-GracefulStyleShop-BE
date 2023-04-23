@@ -59,7 +59,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// </summary>
         /// <param name="enity">Đối tượng</param>
         /// <returns>Danh sách nhân viên</returns>
-        public ServiceResult Insert(Entity enity)
+        public virtual ServiceResult Insert(Entity enity)
         {
             dynamic result;
             var isValid = this.IsValidate(enity);

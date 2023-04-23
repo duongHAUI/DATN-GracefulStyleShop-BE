@@ -35,7 +35,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
         /// </summary>
         /// <param name="parametersFilter">Param bộ lọc truyền vào truyền vào</param>
         /// <returns>Danh sách đối tượng</returns>
-        public virtual PagingResult<Entity> GetByFilter(object parametersFilter)
+        public virtual PagingResult<Entity> GetByFilter(dynamic parametersFilter)
         {
             try
             {

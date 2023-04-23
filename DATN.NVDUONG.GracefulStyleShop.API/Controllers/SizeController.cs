@@ -7,7 +7,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
     public class SizeController : BaseController<Size>
     {
         private IBaseService<Size> _baseService;
-        public SizeController(IBaseService<Size> baseService):base(baseService)
+        public SizeController(IBaseService<Size> baseService) : base(baseService)
         {
             _baseService = baseService;
         }

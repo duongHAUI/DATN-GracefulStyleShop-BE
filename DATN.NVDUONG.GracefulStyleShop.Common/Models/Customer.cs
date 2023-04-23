@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
@@ -14,13 +15,14 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public Guid CustomerId { get; set; }
         [DisplayName("Họ tên")]
         [CustomRequired]
-        public string CustomerName { get; set; }
+        public string FullName { get; set; }
         [DisplayName("Email")]
         [CustomRegularExpression("")]
         public string Email { get; set; }
         [DisplayName("Số điện thoại")]
         [CustomRegularExpression("")]
         public string Phone { get; set; }
+        [CustomRequired]
         public string Password { get; set; }
         public string Image { get; set; }
         public DateTime CreatedAt { get; set; }

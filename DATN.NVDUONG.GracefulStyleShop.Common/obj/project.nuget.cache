@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "KiyPumoVHahsXLZlj9FOCuDKDnFPBrtL5VIhKrXo11Jvw2zjJ1LDlNVkIvUvpAK62kwmhhGFGveeQUPffaTMyQ==",
+  "dgSpecHash": "FwgkabKDWbIGZRGBRKJTuGc3UaJZ2hYTmg7MRzi63drOy3bmTjEFxopEM98P3d+q9QPD81sYU2b62gRE5IkepA==",
   "success": true,
   "projectFilePath": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.Common\\DATN.NVDUONG.GracefulStyleShop.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\duong\\.nuget\\packages\\epplus\\6.1.3\\epplus.6.1.3.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\epplus.system.drawing\\6.1.1\\epplus.system.drawing.6.1.1.nupkg.sha512",
+    "C:\\Users\\duong\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

@@ -1,4 +1,5 @@
-﻿using DATN.NVDUONG.GracefulStyleShop.API.Hepers;
+﻿using DATN.NVDUONG.GracefulStyleShop.API.Helpers;
+using DATN.NVDUONG.GracefulStyleShop.API.Hepers;
 using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.Common;
 using DATN.NVDUONG.GracefulStyleShop.Common.Enums;
@@ -16,7 +17,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
         #endregion
 
         #region Contructor
-        public BaseController(IBaseService<Entity> baseService)
+        public BaseController(IBaseService<Entity> baseService):base()
         {
             _baseService = baseService;
         }
@@ -31,7 +32,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
         /// <returns>Thông tin đối tượng</returns>
         [HttpPost]
         [Route("Filter")]
-        public virtual IActionResult GetByFilter([FromBody] PagingModel paramFilter)
+        public virtual IActionResult GetByFilter([FromBody] dynamic paramFilter)
         {
             try
             {
@@ -80,7 +81,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
         /// <param name="entity">Thông tin muốn thêm</param>
         /// <returns>Id mới</returns>
         [HttpPost]
-        public IActionResult Insert([FromBody] Entity entity)
+        public virtual IActionResult Insert([FromBody] Entity entity)
         {
             try
             {

@@ -20,7 +20,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
         /// </summary>
         /// <param name="parameters">Param bộ lọc truyền vào truyền vào</param>
         /// <returns>Danh sách đối tượng</returns>
-        public object GetByFilter(object parameters);
+        public object GetByFilter(dynamic parameters);
 
         /// <summary>
         /// Lấy dữ liệu theo ID

@@ -1,4 +1,5 @@
 ﻿using CloudinaryDotNet;
+using DATN.NVDUONG.GracefulStyleShop.API.Helpers;
 using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.BL.Services;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
@@ -6,17 +7,34 @@ using DATN.NVDUONG.GracefulStyleShop.DL.Database;
 using DATN.NVDUONG.GracefulStyleShop.DL.Helpers;
 using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.DL.Repository;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.IdentityModel.Tokens;
+using StackExchange.Redis;
 using System.Security.Principal;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IDatabaseConnection, DatabaseConnection>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductDL, ProductDL>();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IFileDL, FileDL>();
+builder.Services.AddScoped<IRegionDL, RegionDL>();
+builder.Services.AddScoped<IAddressReceiveDL, AddressReceiveDL>();
+builder.Services.AddScoped<IRegionService, RegionService>();
+builder.Services.AddScoped<IAddressReceiveService, AddressReceiveService>();
+builder.Services.AddScoped<IUserTokenDL, UserTokenDL>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<ICustomerDL, CustomerDL>();
+builder.Services.AddScoped<IUserTokenService, UserTokenService>();
+builder.Services.AddScoped<IUserTokenDL, UserTokenDL>();
+
 builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 
@@ -24,6 +42,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Cấu hình redis
+//var redis = ConnectionMultiplexer.Connect("localhost");
+//builder.Services.AddSingleton<IConnectionMultiplexer>(redis);
 
 builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
 {
@@ -56,7 +78,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<DATN.NVDUONG.GracefulStyleShop.API.Helpers.AuthenticationMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

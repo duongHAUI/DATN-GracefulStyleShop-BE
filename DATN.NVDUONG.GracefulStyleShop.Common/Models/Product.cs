@@ -1,13 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-
-namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
+﻿namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
 {
     public class Product : Image
     {
@@ -28,6 +19,31 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public string TypeName { get; set; }
         public Guid BrandId { get; set; }
         public string BrandName { get; set; }
+
         public List<Image> Images { get; set; }
+
+        public decimal PriceDel
+        {
+            get
+            {
+                return PriceSale * (decimal)(1 - Discount * 0.01);
+            }
+            set
+            {
+                value = PriceDel;
+            }
+        }
     }
+
+    public class ProductDB : Product
+    {
+        public Guid ProductVariantId { get; set; }
+        public int ProductVariantQuantity { get; set; }
+        public Guid ColorId { get; set; }
+        public Guid SizeId { get; set; }
+        public string ColorCode { get; set; }
+        public string SizeCode { get; set; }
+        public string ColorName { get; set; }
+    }
+
 }

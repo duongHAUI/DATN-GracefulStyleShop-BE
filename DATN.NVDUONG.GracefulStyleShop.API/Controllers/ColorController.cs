@@ -8,7 +8,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
     public class ColorController : BaseController<Color>
     {
         private IBaseService<Color> _baseService;
-        public ColorController(IBaseService<Color> baseService) :base(baseService)
+        public ColorController(IBaseService<Color> baseService) : base(baseService)
         {
             _baseService = baseService;
         }

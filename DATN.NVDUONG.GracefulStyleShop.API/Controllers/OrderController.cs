@@ -8,7 +8,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
     public class OrderController : BaseController<Order>
     {
         private IBaseService<Order> _baseService;
-        public OrderController(IBaseService<Order> baseService) :base(baseService)
+        public OrderController(IBaseService<Order> baseService) : base(baseService)
         {
             _baseService = baseService;
         }
