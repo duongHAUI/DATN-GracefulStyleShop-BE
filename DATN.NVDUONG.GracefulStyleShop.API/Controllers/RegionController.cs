@@ -4,15 +4,17 @@ using Microsoft.AspNetCore.Mvc;
 using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.API.Hepers;
+using DATN.NVDUONG.GracefulStyleShop.API.Helpers;
 
 namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class RegionController : MControllerBase
+    [AuthenPermission]
+    public class RegionController : Authentication
     {
         private readonly IRegionService _regionService;
-        public RegionController(IRegionService regionService)
+        public RegionController(IRegionService regionService, IHttpContextAccessor httpContextAccessor, IUserTokenService userTokenService) : base(httpContextAccessor, userTokenService)
         {
             _regionService = regionService;
         }

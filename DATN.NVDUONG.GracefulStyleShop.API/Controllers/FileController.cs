@@ -7,19 +7,21 @@ using DATN.NVDUONG.GracefulStyleShop.Common;
 using Microsoft.AspNetCore.Mvc;
 using static Dapper.SqlMapper;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
+using DATN.NVDUONG.GracefulStyleShop.API.Helpers;
 
 namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class FileController : MControllerBase
+    [AuthenPermission]
+    public class FileController : Authentication
     {
         #region Field
         protected IFileService _fileService;
         #endregion
 
         #region Contructor
-        public FileController(IFileService fileService)
+        public FileController(IFileService fileService,IHttpContextAccessor httpContextAccessor, IUserTokenService userTokenService) :base(httpContextAccessor, userTokenService)
         {
             _fileService = fileService;
         }

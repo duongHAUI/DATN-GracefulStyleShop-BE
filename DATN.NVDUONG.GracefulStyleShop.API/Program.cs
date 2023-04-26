@@ -3,6 +3,7 @@ using DATN.NVDUONG.GracefulStyleShop.API.Helpers;
 using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.BL.Services;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
+using DATN.NVDUONG.GracefulStyleShop.Commons;
 using DATN.NVDUONG.GracefulStyleShop.DL.Database;
 using DATN.NVDUONG.GracefulStyleShop.DL.Helpers;
 using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
@@ -34,6 +35,7 @@ builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ICustomerDL, CustomerDL>();
 builder.Services.AddScoped<IUserTokenService, UserTokenService>();
 builder.Services.AddScoped<IUserTokenDL, UserTokenDL>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
@@ -42,6 +44,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// tạo các public api
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AllowAnonymousPolicy", policy =>
+        policy.RequireAssertion(context => true));
+});
 
 // Cấu hình redis
 //var redis = ConnectionMultiplexer.Connect("localhost");
@@ -78,10 +87,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseMiddleware<DATN.NVDUONG.GracefulStyleShop.API.Helpers.AuthenticationMiddleware>();
+app.UseRouting();
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.UseCors("corspolicy");
 app.MapControllers();

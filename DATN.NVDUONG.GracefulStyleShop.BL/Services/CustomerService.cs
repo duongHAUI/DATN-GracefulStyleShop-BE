@@ -1,5 +1,6 @@
 ﻿using DATN.NVDUONG.GracefulStyleShop.API.Common;
 using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
+using DATN.NVDUONG.GracefulStyleShop.Common.Commons;
 using DATN.NVDUONG.GracefulStyleShop.Common.Enums;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO;
@@ -60,7 +61,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
                 result = new ServiceResult(new
                 {
                     Token = userToken.Token,
-                    Customer = customer,
+                    Customer = customer
                 });
             }
             else

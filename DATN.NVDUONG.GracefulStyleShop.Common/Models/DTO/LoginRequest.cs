@@ -16,5 +16,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO
         public string Password { get; set; }
 
         public EnumRole RoleType { get; set; }
+        public bool Remember { get; set; }
     }
 }

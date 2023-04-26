@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
 {
+    [AuthenPermission]
     public class AddressReceiveController : BaseController<AddressReceive>
     {
         private IAddressReceiveService _addressReceiveService;
-        public AddressReceiveController(IAddressReceiveService addressReceiveService) : base(addressReceiveService)
+        public AddressReceiveController(IAddressReceiveService addressReceiveService, IHttpContextAccessor httpContextAccessor, IUserTokenService userTokenService) : base(addressReceiveService, httpContextAccessor, userTokenService)
         {
             _addressReceiveService = addressReceiveService;
         }

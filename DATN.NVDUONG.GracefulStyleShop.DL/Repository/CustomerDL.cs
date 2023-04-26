@@ -50,5 +50,37 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 throw new MExceptionResponse(ex.Message);
             }
         }
+
+        public Customer getByEmailAndPassword(string email, string password)
+        {
+            try
+            {
+                // Tên store produce
+                string storedProducedureName = string.Format(NameProduceConstants.GetByEmailAndPassword, "Customer");
+
+                // Thêm parameter
+                var parametes = new DynamicParameters();
+                parametes.Add($"p_Email", email);
+                parametes.Add($"p_Password", password);
+
+                // Mở kết nối
+                _databaseConnection.Open();
+
+                // Xử lý lấy dữ liệu trong stored
+                var result = _databaseConnection.QueryFirstOrDefault<Customer>(storedProducedureName, parametes, commandType: CommandType.StoredProcedure);
+
+                // Đóng kết nối
+                _databaseConnection.Close();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Đóng kết nối
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
     }
 }

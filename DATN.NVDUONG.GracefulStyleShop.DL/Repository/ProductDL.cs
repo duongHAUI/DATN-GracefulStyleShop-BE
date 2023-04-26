@@ -27,7 +27,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
         /// </summary>
         /// <param name="parametersFilter">Param bộ lọc truyền vào truyền vào</param>
         /// <returns>Danh sách đối tượng</returns>
-        public PagingResult<object> GetByFilterDetail(dynamic parametersFilter)
+        public object GetByFilterDetail(object parametersFilter)
         {
             try
             {
@@ -35,7 +35,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 string storedProducedureName = string.Format(NameProduceConstants.GetByFilterDetail, tableName);
 
                 var parameters = new DynamicParameters();
-                parameters.Add("@TotalRecords", direction: ParameterDirection.Output);
                 foreach (PropertyInfo propertyInfo in parametersFilter.GetType().GetProperties())
                 {
                     // Add parameters
@@ -45,11 +44,11 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 // Mở kết nối
                 _databaseConnection.Open();
                 // Xử lý lấy dữ liệu trong stored
-                var result = _databaseConnection.QueryMultiple(storedProducedureName, parameters, commandType: CommandType.StoredProcedure);
+                var ProductDB = _databaseConnection.Connection().Query<ProductDB>(storedProducedureName, parameters, commandType: CommandType.StoredProcedure);
                 // Lấy số lượng 
 
-                var ProductDB = result.Read<ProductDB>();
-                dynamic productRespone = ProductDB.GroupBy(x => x.ProductId).Select(x => new
+                //var ProductDB = result.Read<ProductDB>();
+                var productRespone = ProductDB.GroupBy(x => x.ProductId).Select(x => new
                 {
                     ProductId = x.Select(x => x.ProductId).FirstOrDefault(),
                     ProductCode = x.Select(x => x.ProductCode).FirstOrDefault(),
@@ -85,10 +84,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 }).ToList();
 
 
-                var data = new PagingResult<dynamic>
+                var data = new
                 {
                     Total = productRespone.Count(),
-                    Data = productRespone
+                    Data = productRespone.ToList()
                 };
 
                 // Đóng kết nối

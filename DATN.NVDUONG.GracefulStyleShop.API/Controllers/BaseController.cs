@@ -10,14 +10,14 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class BaseController<Entity> : MControllerBase
+    public class BaseController<Entity> : Authentication
     {
         #region Field
         protected IBaseService<Entity> _baseService;
         #endregion
 
         #region Contructor
-        public BaseController(IBaseService<Entity> baseService):base()
+        public BaseController(IBaseService<Entity> baseService,IHttpContextAccessor httpContextAccessor, IUserTokenService userTokenService) :base(httpContextAccessor, userTokenService)
         {
             _baseService = baseService;
         }
@@ -32,7 +32,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
         /// <returns>Thông tin đối tượng</returns>
         [HttpPost]
         [Route("Filter")]
-        public virtual IActionResult GetByFilter([FromBody] dynamic paramFilter)
+        public virtual IActionResult GetByFilter([FromBody] PagingModel paramFilter)
         {
             try
             {

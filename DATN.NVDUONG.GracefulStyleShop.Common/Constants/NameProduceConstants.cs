@@ -38,7 +38,9 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Constants
         /// 
         public static string GetById = "Proc_{0}_GetById";
         public static string GetByToken = "Proc_{0}_GetByToken";
+        public static string DeleteByToken = "Proc_{0}_DeleteByToken";
         public static string GetByEmail = "Proc_{0}_GetByEmail";
+        public static string GetByEmailAndPassword = "Proc_{0}_GetByEmailAndPassword";
         public static string GetByIdDetail = "Proc_{0}_GetByIdDetail";
 
         /// <summary>

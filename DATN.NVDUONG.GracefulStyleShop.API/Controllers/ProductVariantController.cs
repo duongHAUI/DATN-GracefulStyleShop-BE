@@ -8,9 +8,10 @@ using static Dapper.SqlMapper;
 
 namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
 {
+    [AuthenPermission]
     public class ProductVariantController : BaseController<ProductVariant>
     {
-        public ProductVariantController(IBaseService<ProductVariant> baseService) : base(baseService)
+        public ProductVariantController(IBaseService<ProductVariant> baseService,IHttpContextAccessor httpContextAccessor,IUserTokenService userTokenService) : base(baseService, httpContextAccessor, userTokenService)
         {
         }
     }

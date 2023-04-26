@@ -12,7 +12,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Interfaces
     public interface IProductDL : IBaseDL<Product>
     {
         public bool UpdateSold(Guid productId, int sold);
-        public PagingResult<object> GetByFilterDetail(dynamic parametersFilter);
+        public object GetByFilterDetail(dynamic parametersFilter);
         public object GetByIDDetail(Guid id);
     }
 }

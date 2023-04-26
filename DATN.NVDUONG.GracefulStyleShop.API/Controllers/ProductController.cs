@@ -4,6 +4,7 @@ using DATN.NVDUONG.GracefulStyleShop.Common;
 using DATN.NVDUONG.GracefulStyleShop.Common.Enums;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static Dapper.SqlMapper;
 
@@ -12,7 +13,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
     public class ProductController : BaseController<Product>
     {
         private IProductService _productService;
-        public ProductController(IProductService productService) : base(productService)
+        public ProductController(IProductService productService, IHttpContextAccessor httpContextAccessor, IUserTokenService userTokenService) : base(productService, httpContextAccessor, userTokenService)
         {
             _productService = productService;
         }
@@ -40,9 +41,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
         /// </summary>
         /// <param name="paramFilter">Bộ lọc</param>
         /// <returns>Thông tin đối tượng</returns>
+        [Authorize(Policy = "AllowAnonymousPolicy")]
         [HttpPost]
         [Route("Filter-Detail")]
-        public virtual IActionResult GetByFilterDetail([FromBody] dynamic paramFilter)
+        public virtual IActionResult GetByFilterDetail([FromBody] ProductFilterModel paramFilter)
         {
             try
             {
@@ -65,6 +67,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
         /// </summary>
         /// <param name="id">ID muốn lấy</param>
         /// <returns>Thông tin theo ID</returns>
+        [AllowAnonymous]
         [HttpGet]
         [Route("Detail/{id}")]
         public IActionResult GetByIDDetail([FromRoute] Guid id)

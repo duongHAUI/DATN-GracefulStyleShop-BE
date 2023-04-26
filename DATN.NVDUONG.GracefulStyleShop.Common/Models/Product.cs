@@ -19,9 +19,7 @@
         public string TypeName { get; set; }
         public Guid BrandId { get; set; }
         public string BrandName { get; set; }
-
         public List<Image> Images { get; set; }
-
         public decimal PriceDel
         {
             get

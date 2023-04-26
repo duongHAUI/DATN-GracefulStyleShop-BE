@@ -5,10 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
 {
+    [AuthenPermission]
     public class CartController : BaseController<Cart>
     {
         private IBaseService<Cart> _baseService;
-        public CartController(IBaseService<Cart> baseService) : base(baseService)
+        public CartController(IBaseService<Cart> baseService, IHttpContextAccessor httpContextAccessor, IUserTokenService userTokenService) : base(baseService, httpContextAccessor, userTokenService)
         {
             _baseService = baseService;
         }

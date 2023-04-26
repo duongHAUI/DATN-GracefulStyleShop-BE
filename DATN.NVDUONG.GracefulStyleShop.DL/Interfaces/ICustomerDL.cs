@@ -10,5 +10,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Interfaces
     public interface ICustomerDL : IBaseDL<Customer>
     {
         public Customer getByEmail(string email);
+
+        public Customer getByEmailAndPassword(string email,string password);
     }
 }
