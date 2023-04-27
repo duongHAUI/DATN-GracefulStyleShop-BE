@@ -24,6 +24,9 @@
         /// Text tìm kiếm
         /// </summary>
         public Guid? parentId { get; set; }
+
+        public Guid? TypeId { get; set; }
+        public Guid? BrandId { get; set; }
     }
     
 }

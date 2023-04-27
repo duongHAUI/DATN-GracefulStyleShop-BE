@@ -103,6 +103,71 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
             }
         }
 
+        /// <summary>
+        /// Lấy danh sách có bộ lọc
+        /// </summary>
+        /// <param name="parametersFilter">Param bộ lọc truyền vào truyền vào</param>
+        /// <returns>Danh sách đối tượng</returns>
+        public override PagingResult<Product> GetByFilter(object parametersFilter)
+        {
+            try
+            {
+                // Tên store produce
+                string storedProducedureName = string.Format(NameProduceConstants.GetByFilter, tableName);
+
+                var parameters = new DynamicParameters();
+                foreach (PropertyInfo propertyInfo in parametersFilter.GetType().GetProperties())
+                {
+                    // Add parameters
+                    parameters.Add("p_" + propertyInfo.Name, propertyInfo.GetValue(parametersFilter));
+                }
+
+                // Mở kết nối
+                _databaseConnection.Open();
+                // Xử lý lấy dữ liệu trong stored
+                var ProductDB = _databaseConnection.Connection().Query<ProductDB>(storedProducedureName, parameters, commandType: CommandType.StoredProcedure);
+                // Lấy số lượng 
+
+                //var ProductDB = result.Read<ProductDB>();
+                var productDictionary = new Dictionary<Guid, Product>();
+                // Xử lý lấy dữ liệu trong stored
+                var result = _databaseConnection.Connection().Query<Product, Image, Product>(
+                                    storedProducedureName,
+                                    (product, image) =>
+                                    {
+                                        Product productEntry;
+                                        if (!productDictionary.TryGetValue(product.ProductId, out productEntry))
+                                        {
+                                            productEntry = product;
+                                            productEntry.Images = new List<Image>();
+                                            productDictionary.Add(productEntry.ProductId, productEntry);
+                                        }
+
+                                        productEntry.Images.Add(image);
+                                        return productEntry;
+                                    }, commandType: CommandType.StoredProcedure, param: parameters,
+                                    splitOn: "ImageId")
+                                    .Distinct()
+                                    .ToList();
+                var data = new PagingResult<Product>
+                {
+                    Total = result.Count(),
+                    Data = result.ToList()
+                };
+
+                // Đóng kết nối
+                _databaseConnection.Close();
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
+
         public override Product GetById(Guid id)
         {
             try
@@ -141,7 +206,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 // Đóng kết nối
                 _databaseConnection.Close();
 
-                return new Product();
+                return result[0];
             }
             catch (Exception ex)
             {

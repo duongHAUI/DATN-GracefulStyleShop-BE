@@ -39,7 +39,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// </summary>
         /// <param name="parameters">Param bộ lọc truyền vào truyền vào</param>
         /// <returns>Danh sách đối tượng</returns>
-        public object GetByFilter(object parameters)
+        public virtual object GetByFilter(object parameters)
         {
             return _baseDL.GetByFilter(parameters);
         }

@@ -21,6 +21,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Helpers
             // List api không cần token
 
             var request = httpContextAccessor.HttpContext.Request;
+            
             if (!request.Path.Equals("/api/v1/customer/"))
             {
                 string token = CacheUserToken.GetTokenFromRequest(request);
