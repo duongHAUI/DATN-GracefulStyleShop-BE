@@ -178,24 +178,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
                 return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
             }
         }
-
-        [HttpPut]
-        [Route("Update-Quantity/{id}")]
-        public IActionResult UpdateQuantity([FromRoute] Guid id, [FromBody] int quantity)
-        {
-            try
-            {
-                bool result = _baseService.UpdateQuantity(id, quantity);
-
-                return StatusCode(StatusCodes.Status200OK, result);
-            }
-            catch (MExceptionResponse ex)
-            {
-                Console.WriteLine(ex.Message);
-                // Bắn lỗi exeption
-                return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
-            }
-        }
         #endregion
     }
 }

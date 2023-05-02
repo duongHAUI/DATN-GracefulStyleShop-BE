@@ -9,7 +9,9 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
     public class Order
     {
         public Guid OrderId { get; set; }
-        public int Quantity { get; set; }
+        public int TotalAmount { get; set; }
+        public int PaymentMethod { get; set; }
+        public decimal TotalPrice { get; set; }
         public string Note { get; set; }
         public string Status { get; set; }
         public string CancelReason { get; set; }
@@ -17,5 +19,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public DateTime ModifiedAt { get; set; }
         public Guid AddressReceiveId { get; set; }
         public Guid ShipmentId { get; set; }
+
+        public List<OrderDetail> OrderDetails { get; set; }
     }
 }

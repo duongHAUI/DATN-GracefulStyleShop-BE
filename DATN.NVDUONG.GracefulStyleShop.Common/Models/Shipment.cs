@@ -10,6 +10,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
     {
         public Guid ShipmentId { get; set; }
         public string ShipmentCode { get; set; }
+        public string ShipmentName { get; set; }
         public string Method { get; set; }
         public int DateFrom { get; set; }
         public int DateTo { get; set; }
@@ -22,7 +23,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         {
             get
             {
-                return DateFrom + " - " + DateTo + " ngày";
+                string dateReceive = "Giao hàng vào ";
+                DateTime dateNow = DateTime.Now;
+                dateReceive += dateNow.AddDays(DateFrom + 1).ToString("dd/MM/yyyy");
+                dateReceive += " - ";
+                dateReceive += dateNow.AddDays(DateTo + 1).ToString("dd/MM/yyyy");
+                return dateReceive;
             }
         }
     }

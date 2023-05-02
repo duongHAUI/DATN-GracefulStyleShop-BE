@@ -11,5 +11,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Interfaces
     public interface ICartDL : IBaseDL<Cart>
     {
         public int CartNumber(Guid CustomerId);
+
+        public bool UpdateQuantity(Guid id, int quantity);
     }
 }

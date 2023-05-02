@@ -90,7 +90,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
             _databaseConnection.Open();
 
             // Đóng kết nối
-            int result = _databaseConnection.ImportExcel<Image>(images);
+            int result = _databaseConnection.InsertRecords<Image>(images);
 
             return result > 0 ? true : false;
         }

@@ -19,6 +19,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
         {
             try
             {
+                paramFilter.parentId = userToken.UserID;
                 // Xử lý
                 var result = _cartService.GetByFilter(paramFilter);
 
@@ -33,15 +34,33 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
             }
         }
         [HttpGet]
-        [Route("cart-number/{customerId}")]
-        public IActionResult CartNumber([FromRoute] Guid CustomerId)
+        [Route("cart-number")]
+        public IActionResult CartNumber()
         {
             try
             {
                 // Xử lý
-                var result = _cartService.CartNumber(CustomerId);
+                var result = _cartService.CartNumber(userToken.UserID);
 
                 // Trả về thông tin của employee muốn lấy
+                return StatusCode(StatusCodes.Status200OK, result);
+            }
+            catch (MExceptionResponse ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Bắn lỗi exeption
+                return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
+            }
+        }
+
+        [HttpPut]
+        [Route("Update-Quantity/{id}")]
+        public IActionResult UpdateQuantity([FromRoute] Guid id, [FromBody] int quantity)
+        {
+            try
+            {
+                bool result = _cartService.UpdateQuantity(id, quantity);
+
                 return StatusCode(StatusCodes.Status200OK, result);
             }
             catch (MExceptionResponse ex)

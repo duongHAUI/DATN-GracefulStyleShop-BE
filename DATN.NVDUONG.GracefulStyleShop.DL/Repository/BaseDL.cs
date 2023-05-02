@@ -352,38 +352,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 throw new MExceptionResponse(ex.Message);
             }
         }
-
-
-        public bool UpdateQuantity(Guid id, int quantity)
-        {
-            try
-            {
-                string query = $"Update {tableName} set Quantity = Quantity + {quantity} where {tableName}Id = {id}";
-
-                //Mở kết nối
-                _databaseConnection.Open();
-                _databaseConnection.BeginTransaction();
-
-                //Xử lý update dữ liệu số lượng
-                int numberUpdate = _databaseConnection.Execute(query, commandType: CommandType.Text);
-                if (numberUpdate == 0)
-                {
-                    return false;
-                }
-                _databaseConnection.CommitTransaction();
-                return true;
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                _databaseConnection.RollbackTransaction();
-                _databaseConnection.Close();
-                throw new MExceptionResponse(ex.Message);
-            }
-        }
-
-
         public bool LockUpRecords(List<Guid> listGuid)
         {
             try

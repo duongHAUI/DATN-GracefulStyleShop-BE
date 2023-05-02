@@ -82,7 +82,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
             }
         }
 
-        protected override Customer processPropertyCustom(Customer customer)
+        public override Customer processPropertyCustom(Customer customer)
         {
             // mã hóa mật khẩu
             customer.Password = DATN.NVDUONG.GracefulStyleShop.Commons.Commons.MD5Hash(customer.Password);

@@ -37,6 +37,8 @@ builder.Services.AddScoped<IUserTokenService, UserTokenService>();
 builder.Services.AddScoped<IUserTokenDL, UserTokenDL>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IOrderDL, OrderDL>();
 builder.Services.AddScoped<ICartDL, CartDL>();
 
 builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));

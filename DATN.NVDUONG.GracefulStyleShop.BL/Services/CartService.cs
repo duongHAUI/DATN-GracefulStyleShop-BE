@@ -26,5 +26,9 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         {
             return _cartDL.GetByFilter(parameters);
         }
+        public bool UpdateQuantity(Guid id, int quantity)
+        {
+            return _cartDL.UpdateQuantity(id, quantity);
+        }
     }
 }

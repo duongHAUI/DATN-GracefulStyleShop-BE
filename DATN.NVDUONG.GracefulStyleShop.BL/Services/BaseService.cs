@@ -167,20 +167,9 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
             return processPropertyCustom(entity);
         }
 
-        protected virtual Entity processPropertyCustom(Entity entity)
+        public virtual Entity processPropertyCustom(Entity entity)
         {
             return entity;
-        }
-
-        /// <summary>
-        /// Cập nhật số lượng
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="quantity"> Trường hợp nhập hàng thì Quantity > 0, TH bán Quantity < 0</param>
-        /// <returns>true - false</returns>
-        public bool UpdateQuantity(Guid id, int quantity)
-        {
-            return _baseDL.UpdateQuantity(id, quantity);
         }
 
         /// <summary>

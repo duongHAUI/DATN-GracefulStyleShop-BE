@@ -49,7 +49,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
         /// <returns>Số bản ghi thay đổi</returns>
         public bool DeleteRecords(List<Guid> listId);
         public bool LockUpRecords(List<Guid> listId);
-        public bool UpdateQuantity(Guid id, int quantity);
         #endregion
     }
 }

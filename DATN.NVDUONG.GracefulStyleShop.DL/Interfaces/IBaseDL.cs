@@ -60,12 +60,5 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Interfaces
         public bool LockUpRecords(List<Guid> listId);
 
         public bool DeleteUpdateRecords(List<Guid> listId);
-        /// <summary>
-        /// Cập nhật số lượng
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="quantity"></param>
-        /// <returns>true - false</returns>
-        public bool UpdateQuantity(Guid id, int quantity);
     }
 }

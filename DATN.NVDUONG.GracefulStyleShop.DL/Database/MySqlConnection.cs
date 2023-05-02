@@ -198,7 +198,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="tableName">Tên bảng</param>
         /// <param name="dataTable">Dữ liệu bảng</param>
         /// <returns>Số lượng bản ghi được thêm</returns>
-        public int ImportExcel<T>(List<T> records)
+        public int InsertRecords<T>(List<T> records)
         {
             try
             {
@@ -263,15 +263,15 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
                 query += String.Join(",", queryListItem);
 
                 // Mở kết nối
-                Open();
-                BeginTransaction();
+                //Open();
+                //BeginTransaction();
 
                 numberRecoredImportSuccess = _connection.Execute(query, null, _transaction);
                 if (numberRecoredImportSuccess != records.Count) RollbackTransaction();
-                CommitTransaction();
+                //CommitTransaction();
 
                 // Đóng kết nối
-                Close();
+                //Close();
 
                 return numberRecoredImportSuccess;
             }

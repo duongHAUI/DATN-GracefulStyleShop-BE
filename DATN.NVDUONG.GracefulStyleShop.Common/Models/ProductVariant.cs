@@ -20,5 +20,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public decimal PriceSupply { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
+        public Guid SizeId { get; set; }
+        public string SizeCode { get; set; }
+        public string ColorName { get; set; }
     }
 }
