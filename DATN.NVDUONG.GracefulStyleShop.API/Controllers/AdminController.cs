@@ -8,10 +8,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
     [AuthenPermission]
     public class AdminController : BaseController<Admin>
     {
-        private IBaseService<Admin> _baseService;
-        public AdminController(IBaseService<Admin> baseService, IHttpContextAccessor httpContextAccessor,IUserTokenService userTokenService) : base(baseService, httpContextAccessor, userTokenService)
+        private IAdminService _adminService;
+        public AdminController(IAdminService adminService, IHttpContextAccessor httpContextAccessor,IUserTokenService userTokenService) : base(adminService, httpContextAccessor, userTokenService)
         {
-            _baseService = baseService;
+            _adminService = adminService;
         }
     }
 }

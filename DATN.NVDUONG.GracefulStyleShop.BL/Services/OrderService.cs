@@ -21,8 +21,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
             _orderDL = orderDL;
         }
 
-        public override Order processPropertyCustom(Order order)
+        public override Order processPropertyCustom(Order order,bool IsInsert)
         {
+
+            Random random = new Random();
+            string orderDetailCode = "DH" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            order.OrderCode = orderDetailCode;
             order.OrderDetails.ForEach(d =>
             {
                 d.CreatedAt = DateTime.Now;

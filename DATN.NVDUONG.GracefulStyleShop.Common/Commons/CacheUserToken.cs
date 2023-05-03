@@ -1,6 +1,9 @@
 ﻿using DATN.NVDUONG.GracefulStyleShop.Common.Commons;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -26,7 +29,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Common
             string token;
             Guid ID = Guid.NewGuid();
 
-            token = MConvert.ToBase64(ID);
+            token = CreateToken(ID.ToString());
 
             var userToken = new UserToken
             {
@@ -45,12 +48,16 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Common
         public static UserToken CreateToken(Admin admin, string ipAddress = "", bool IsRememberPassword = false)
         {
             string msg;
+            string token;
+            Guid ID = Guid.NewGuid();
+
+            token = CreateToken(ID.ToString());
             var userToken = new UserToken
             {
                 UserTokenId = Guid.NewGuid(),
                 UserID = admin.AdminId,
                 IsRememberPassword = IsRememberPassword,
-                Token = Convert.ToBase64String(Guid.NewGuid().ToByteArray()),
+                Token = token,
                 ExpiredAt = DateTime.Now.AddHours(IsRememberPassword ? HOUR_TIMEOUT_TOKEN_REMEMBER : HOUR_TIMEOUT_TOKEN),
                 CreatedAt = DateTime.Now,
                 IpAddress = ipAddress,
@@ -75,6 +82,23 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Common
             //LtUser_Token.Add(UserToken);
 
             return userToken;
+        }
+
+        public static string CreateToken(string id)
+        {
+            string token;
+            var key = Encoding.ASCII.GetBytes("mahoadatnmatkhau!@12321321321");
+
+            byte[] dataBytes = Encoding.ASCII.GetBytes(id);
+
+            // Tạo mã hóa HmacSha256Signature
+            using (var hmac = new HMACSHA256(key))
+            {
+                byte[] hash = hmac.ComputeHash(dataBytes);
+                token = Convert.ToBase64String(hash);
+            }
+
+            return token.Replace("/","+");
         }
     }
 }

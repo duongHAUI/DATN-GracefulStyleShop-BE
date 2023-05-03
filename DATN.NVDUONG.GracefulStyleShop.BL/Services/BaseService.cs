@@ -102,7 +102,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
 
                 if (!response)
                     result = new ServiceResult(EnumErrorCode.SERVER_ERROR, ResourceVI.ErrorServer, ResourceVI.ErrorServer);
-                else result = new ServiceResult(id);
+                else result = new ServiceResult(enity);
             }else{
                 // trả về lỗi validate
                 result = new ServiceResult(EnumErrorCode.BADREQUEST, ResourceVI.ErrorValidate, ResourceVI.ErrorValidate, listErrorValidate);
@@ -154,6 +154,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// <returns>Đối tượng đầy đủ</returns>
         public Entity AddProperties(dynamic entity, bool isInsert, Guid? entityId, out Guid newId)
         {
+            entity = processPropertyCustom(entity, isInsert);
+
             entity.ModifiedAt = DateTime.Now;
             if (isInsert)
             {
@@ -164,10 +166,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
 
             newId = entity.GetType().GetProperty($"{typeof(Entity).Name}Id").GetValue(entity, null);
 
-            return processPropertyCustom(entity);
+            return entity;
         }
 
-        public virtual Entity processPropertyCustom(Entity entity)
+        public virtual Entity processPropertyCustom(Entity entity,bool isInsert)
         {
             return entity;
         }

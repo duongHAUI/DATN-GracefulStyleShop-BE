@@ -75,17 +75,23 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
 
         public override void ValidateCustom(Customer entity, bool isInsert = true)
         {
-            var customer = _customerDL.getByEmail(entity.Email);
-            if (customer != null)
+            if (isInsert)
             {
-                listErrorValidate.Add("Email", "Email đã tồn tại");
+                var customer = _customerDL.getByEmail(entity.Email);
+                if (customer != null)
+                {
+                    listErrorValidate.Add("Email", "Email đã tồn tại");
+                }
             }
         }
 
-        public override Customer processPropertyCustom(Customer customer)
+        public override Customer processPropertyCustom(Customer customer, bool isInsert)
         {
-            // mã hóa mật khẩu
-            customer.Password = DATN.NVDUONG.GracefulStyleShop.Commons.Commons.MD5Hash(customer.Password);
+            if(isInsert)
+            {
+                // mã hóa mật khẩu
+                customer.Password = DATN.NVDUONG.GracefulStyleShop.Commons.Commons.MD5Hash(customer.Password);
+            }
             return customer;
         }
     }

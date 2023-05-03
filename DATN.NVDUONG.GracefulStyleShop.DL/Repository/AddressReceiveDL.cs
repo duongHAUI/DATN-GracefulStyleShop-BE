@@ -23,9 +23,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
         {
             try
             {
+                var dateNow = DateTime.Now.ToString("yyyy/MM/dd");
                 //Set tất cả các IsDefault của dữ liệu về 0
                 string query = $"Update AddressReceive set IsDefault = 0 where CustomerId = '{addressReceiveSetDefauModel.CustomerId}'; " +
-                    $"Update AddressReceive set IsDefault = 1 where AddressReceiveId = '{addressReceiveSetDefauModel.AddressReceiveId}'";
+                    $"Update AddressReceive set IsDefault = 1, ModifiedAt = '{dateNow}' where AddressReceiveId = '{addressReceiveSetDefauModel.AddressReceiveId}'";
 
                 //Mở kết nối\
                 _databaseConnection.Open();

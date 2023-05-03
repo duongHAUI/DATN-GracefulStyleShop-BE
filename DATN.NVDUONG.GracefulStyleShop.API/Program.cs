@@ -33,6 +33,8 @@ builder.Services.AddScoped<IAddressReceiveService, AddressReceiveService>();
 builder.Services.AddScoped<IUserTokenDL, UserTokenDL>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ICustomerDL, CustomerDL>();
+builder.Services.AddScoped<IAdminDL, AdminDL>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IUserTokenService, UserTokenService>();
 builder.Services.AddScoped<IUserTokenDL, UserTokenDL>();
 builder.Services.AddScoped<IAuthService, AuthService>();

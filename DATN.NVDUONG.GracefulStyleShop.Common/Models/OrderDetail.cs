@@ -9,6 +9,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
     public class OrderDetail
     {
         public Guid OrderDetailId { get; set; }
+        public string OrderDetailCode { get; set; }
         public int Quantity { get; set; }
         public decimal PriceSale { get; set; }
         public DateTime CreatedAt { get; set; }

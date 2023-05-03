@@ -22,7 +22,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         [DisplayName("Số điện thoại")]
         [CustomRegularExpression("")]
         public string Phone { get; set; }
-        [CustomRequired]
         public string Password { get; set; }
         public string Image { get; set; }
         public DateTime CreatedAt { get; set; }

@@ -22,10 +22,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
     {
         private readonly IUserTokenDL _userTokenDL;
         private readonly ICustomerDL _customerDL;
-        public AuthService(IUserTokenDL userTokenDL, ICustomerDL customerDL)
+        private readonly IAdminDL _adminDL;
+        public AuthService(IUserTokenDL userTokenDL, IAdminDL adminDL, ICustomerDL customerDL)
         {
             _userTokenDL = userTokenDL;
             _customerDL = customerDL;
+            _adminDL = adminDL;
         }
         public dynamic AuthenticateUser(LoginRequest loginRequest)
         {
@@ -66,6 +68,33 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
                     {
                         Token = userToken.Token,
                         Customer = customer,
+                    });
+                }
+            }
+            if (loginRequest.RoleType == EnumRole.Admin)
+            {
+                var password = Commons.Commons.MD5Hash(loginRequest.Password);
+
+                var admin = _adminDL.getByEmailAndPassword(loginRequest.Email, password);
+                if (admin == null)
+                {
+                    listErrorValidate.Add("LoginError", "Tài khoản hoặc mật khẩu không chính xác.!");
+                    result = new ServiceResult(EnumErrorCode.BADREQUEST, ResourceVI.ErrorValidate, ResourceVI.ErrorValidate, listErrorValidate);
+                }
+                else
+                {
+                    UserToken userToken = CacheUserToken.CreateToken(admin);
+
+                    var response = _userTokenDL.Insert(userToken);
+                    if (!response)
+                        result = new ServiceResult(EnumErrorCode.SERVER_ERROR, ResourceVI.ErrorServer, ResourceVI.ErrorServer);
+
+                    admin.Password = "";
+
+                    result = new ServiceResult(new
+                    {
+                        Token = userToken.Token,
+                        Admin = admin,
                     });
                 }
             }

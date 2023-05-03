@@ -31,5 +31,13 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
                 return dateReceive;
             }
         }
+        //Số ngày giao hàng dự kiến của pt ship
+        public string DateShip
+        {
+            get
+            {
+                return DateFrom + " - " + DateTo + " ngày";
+            }
+        }
     }
 }
