@@ -25,7 +25,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         {
 
             Random random = new Random();
-            string orderDetailCode = "DH" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            string orderDetailCode = "HD" + DateTime.Now.ToString("yyyyMMddHHmmss");
             order.OrderCode = orderDetailCode;
             order.OrderDetails.ForEach(d =>
             {

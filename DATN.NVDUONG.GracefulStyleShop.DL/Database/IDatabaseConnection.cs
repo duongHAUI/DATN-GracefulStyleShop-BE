@@ -120,7 +120,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Database
         /// <param name="tableName">Tên bảng</param>
         /// <param name="dataTable">Dữ liệu bảng</param>
         /// <returns>Số lượng bản ghi được thêm</returns>
-        public int InsertRecords<T>(List<T> records);
+        public int InsertRecords<T>(List<T> records,string query = "");
     }
 }
 

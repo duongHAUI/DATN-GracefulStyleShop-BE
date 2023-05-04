@@ -20,6 +20,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public DateTime ModifiedAt { get; set; }
         public Guid AddressReceiveId { get; set; }
         public Guid ShipmentId { get; set; }
+        public string ShipmentName { get; set; }
+        public string Receiver { get; set; }
+        public string AddressDetail { get; set; }
+        public string Phone { get; set; }
 
         public List<OrderDetail> OrderDetails { get; set; }
     }

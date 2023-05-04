@@ -18,25 +18,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public DateTime ModifiedAt { get; set; }
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
-        public Admin()
-        {
+        public bool IsBoss { get; set; }
 
-        }
-        public Admin(Guid adminId, string fullName, string email, string password)
-        {
-            this.AdminId = adminId;
-            this.FullName = fullName;
-            this.Email = email;
-            this.Password = password;
-        }
-        public Admin(Guid adminId, string fullName, string email, string password, string image, string phone, DateTime createdAt, DateTime modifiedAt, bool isActive, bool isDelete) : this(adminId, fullName, email, password)
-        {
-            Image = image;
-            Phone = phone;
-            CreatedAt = createdAt;
-            ModifiedAt = modifiedAt;
-            IsActive = isActive;
-            IsDelete = isDelete;
-        }
     }
 }

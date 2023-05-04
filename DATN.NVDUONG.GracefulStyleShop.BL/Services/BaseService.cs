@@ -154,7 +154,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         /// <returns>Đối tượng đầy đủ</returns>
         public Entity AddProperties(dynamic entity, bool isInsert, Guid? entityId, out Guid newId)
         {
-            entity = processPropertyCustom(entity, isInsert);
 
             entity.ModifiedAt = DateTime.Now;
             if (isInsert)
@@ -166,6 +165,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
 
             newId = entity.GetType().GetProperty($"{typeof(Entity).Name}Id").GetValue(entity, null);
 
+            entity = processPropertyCustom(entity, isInsert);
             return entity;
         }
 
