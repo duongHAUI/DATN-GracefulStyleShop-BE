@@ -66,6 +66,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
         {
             try
             {
+                var order = new Order();
                 // Tên store produce
                 string storedProducedureName = string.Format(NameProduceConstants.GetById, tableName);
 
@@ -78,29 +79,35 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
 
                 var orderDictionary = new Dictionary<Guid, Order>();
                 // Xử lý lấy dữ liệu trong stored
-                var result = _databaseConnection.Connection().Query<Order, OrderDetail, Order>(
-                                    storedProducedureName,
-                                    (order, orderDetail) =>
-                                    {
-                                        Order orderEntry;
-                                        if (!orderDictionary.TryGetValue(order.OrderId, out orderEntry))
-                                        {
-                                            orderEntry = order;
-                                            orderEntry.OrderDetails = new List<OrderDetail>();
-                                            orderDictionary.Add(orderEntry.OrderId, orderEntry);
-                                        }
+                var result = _databaseConnection.Connection().Query<Order>(storedProducedureName, parametes, commandType: CommandType.StoredProcedure);
 
-                                        orderEntry.OrderDetails.Add(orderDetail);
-                                        return orderEntry;
-                                    }, commandType: CommandType.StoredProcedure, param: parametes,
-                                    splitOn: "OrderId")
-                                    .Distinct()
-                                    .ToList();
+                order = result.GroupBy(x => x.OrderId).Select(x => new Order
+                {
+                    OrderId = x.Key,
+                    OrderCode = x.Select(x => x.OrderCode).FirstOrDefault(),
+                    Status = x.Select(x => x.Status).FirstOrDefault(),
+                    ShipmentName = x.Select(x => x.ShipmentName).FirstOrDefault(),
+                    CancelReason = x.Select(x => x.CancelReason).FirstOrDefault(),
+                    CreatedAt = x.Select(x => x.CreatedAt).FirstOrDefault(),
+                    AddressDetail = x.Select(x => x.AddressDetail).FirstOrDefault(),
+                    Phone = x.Select(x => x.Phone).FirstOrDefault(),
+                    Receiver = x.Select(x => x.Receiver).FirstOrDefault(),
+                    OrderDetails = x.Select(y => new OrderDetail
+                    {
+                        OrderDetailId = y.OrderDetailId,
+                        Quantity = y.Quantity,
+                        PriceSale = y.PriceSale,
+                        ImageLink = y.ImageLink,
+                        ProductName = y.ProductName,
+                        ColorName = y.ColorName,
+                        SizeCode = y.SizeCode
+                    }).ToList()
+                }).ToList()[0];
 
                 // Đóng kết nối
                 _databaseConnection.Close();
 
-                return result[0];
+                return order;
             }
             catch (Exception ex)
             {

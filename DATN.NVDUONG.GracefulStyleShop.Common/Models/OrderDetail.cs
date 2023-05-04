@@ -14,5 +14,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public DateTime CreatedAt { get; set; }
         public Guid OrderId { get; set; }
         public Guid ProductVariantId { get; set; }
+        public string ImageLink { get; set; }
+
+        public string ProductName { get; set; }
+        public string ColorName { get; set; }
+        public string SizeCode { get; set; }
     }
 }
