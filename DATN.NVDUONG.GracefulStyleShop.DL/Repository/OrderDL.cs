@@ -21,47 +21,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
         public OrderDL(IDatabaseConnection databaseConnection) : base(databaseConnection)
         {
         }
-
-        //public virtual PagingResult<object> GetByFilter(dynamic parametersFilter)
-        //{
-        //    try
-        //    {
-        //        // Tên store produce
-        //        string storedProducedureName = string.Format(NameProduceConstants.GetByFilter, tableName);
-
-        //        var parameters = new DynamicParameters();
-        //        parameters.Add("@TotalRecords", direction: ParameterDirection.Output);
-        //        foreach (PropertyInfo propertyInfo in parametersFilter.GetType().GetProperties())
-        //        {
-        //            // Add parameters
-        //            parameters.Add("p_" + propertyInfo.Name, propertyInfo.GetValue(parametersFilter));
-        //        }
-
-        //        // Mở kết nối
-        //        _databaseConnection.Open();
-
-        //        // Xử lý lấy dữ liệu trong stored
-        //        var result = _databaseConnection.QueryMultiple(storedProducedureName, parameters, commandType: CommandType.StoredProcedure);
-
-        //        var data = new PagingResult<object>()
-        //        {
-        //            Data = result.Read<object>().ToList(),
-        //            Total = parameters.Get<int>("@TotalRecords")
-        //        };
-
-        //        // Đóng kết nối
-        //        _databaseConnection.Close();
-
-        //        return data;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //        _databaseConnection.Close();
-        //        throw new MExceptionResponse(ex.Message);
-        //    }
-        //}
-
         public override Order GetById(Guid id)
         {
             try
@@ -148,6 +107,32 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
+
+        public bool UpdateStatus(Guid orderId, int status)
+        {
+            try
+            {
+                // Tên store produce
+                string query = $"Update `order` set Status = {status} where OrderId = '{orderId}'";
+
+                // Mở kết nối
+                _databaseConnection.Open();
+                // Xử lý lấy dữ liệu trong stored
+
+                int result = _databaseConnection.Execute(query, commandType: CommandType.Text);
+
+                _databaseConnection.Close();
+
+                return result > 0 ? true : false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Đóng kết nối
                 _databaseConnection.Close();
                 throw new MExceptionResponse(ex.Message);
             }

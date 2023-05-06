@@ -27,6 +27,7 @@
 
         public Guid? TypeId { get; set; }
         public Guid? BrandId { get; set; }
+        public int Status { get; set; }
     }
     
 }

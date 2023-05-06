@@ -25,6 +25,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public string AddressDetail { get; set; }
         public string Phone { get; set; }
         public string ImageLink { get; set; }
+        public string FullName { get; set; }
         public int Quantity { get; set; }
         public int IsPaid { get; set; }
         public Guid CustomerId { get; set; }
@@ -42,5 +43,11 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public decimal PriceDel { get; set; }
         public string ProductName { get; set; }
         public string ImageLink { get; set; }
+    }
+
+    public class UpdateOrder
+    {
+        public Guid OrderId { get; set; }
+        public int Status { get; set; }
     }
 }

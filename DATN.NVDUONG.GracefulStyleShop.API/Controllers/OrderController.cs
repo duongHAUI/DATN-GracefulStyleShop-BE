@@ -44,5 +44,22 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
                 return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
             }
         }
+
+        [HttpPost("update-status")]
+        public IActionResult UpdateStatus([FromBody] UpdateOrder updateOrder)
+        {
+            try
+            {
+                // Gọi hàm xử lý
+                bool result = _orderService.UpdateStatus(updateOrder.OrderId, updateOrder.Status);
+                return StatusCode(StatusCodes.Status200OK, result);
+            }
+            catch (MExceptionResponse ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Bắn lỗi exeption
+                return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
+            }
+        }
     }
 }

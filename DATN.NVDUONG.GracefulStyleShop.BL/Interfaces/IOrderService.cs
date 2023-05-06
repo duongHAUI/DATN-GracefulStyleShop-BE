@@ -11,5 +11,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
     public interface IOrderService : IBaseService<Order>
     {
         public ServiceResult Insert(Order order, Guid customerId);
+        public bool UpdateStatus(Guid orderId, int status);
     }
 }

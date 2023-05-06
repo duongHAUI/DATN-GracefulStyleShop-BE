@@ -18,5 +18,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public string ProductName { get; set; }
         public string ColorName { get; set; }
         public string SizeCode { get; set; }
+        public string SupplierName { get; set; }
     }
 }
