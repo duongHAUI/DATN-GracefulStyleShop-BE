@@ -76,36 +76,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
 
                 // Mở kết nối
                 _databaseConnection.Open();
-
-                var orderDictionary = new Dictionary<Guid, Order>();
                 // Xử lý lấy dữ liệu trong stored
-                var result = _databaseConnection.Connection().Query<Order>(storedProducedureName, parametes, commandType: CommandType.StoredProcedure);
 
-                order = result.GroupBy(x => x.OrderId).Select(x => new Order
-                {
-                    OrderId = x.Key,
-                    OrderCode = x.Select(x => x.OrderCode).FirstOrDefault(),
-                    Status = x.Select(x => x.Status).FirstOrDefault(),
-                    ShipmentName = x.Select(x => x.ShipmentName).FirstOrDefault(),
-                    CancelReason = x.Select(x => x.CancelReason).FirstOrDefault(),
-                    CreatedAt = x.Select(x => x.CreatedAt).FirstOrDefault(),
-                    AddressDetail = x.Select(x => x.AddressDetail).FirstOrDefault(),
-                    Phone = x.Select(x => x.Phone).FirstOrDefault(),
-                    Receiver = x.Select(x => x.Receiver).FirstOrDefault(),
-                    OrderDetails = x.Select(y => new OrderDetail
-                    {
-                        OrderDetailId = y.OrderDetailId,
-                        Quantity = y.Quantity,
-                        PriceSale = y.PriceSale,
-                        ImageLink = y.ImageLink,
-                        ProductName = y.ProductName,
-                        ColorName = y.ColorName,
-                        SizeCode = y.SizeCode
-                    }).ToList()
-                }).ToList()[0];
+                var result = _databaseConnection.QueryMultiple(storedProducedureName, param: parametes, commandType: CommandType.StoredProcedure);
 
-                // Đóng kết nối
-                _databaseConnection.Close();
+                order = result.ReadSingleOrDefault<Order>();
+                order.OrderDetails = result.Read<OrderDetail>().ToList();
 
                 return order;
             }

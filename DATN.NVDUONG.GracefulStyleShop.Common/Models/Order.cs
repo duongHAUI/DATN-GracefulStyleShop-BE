@@ -24,14 +24,23 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public string Receiver { get; set; }
         public string AddressDetail { get; set; }
         public string Phone { get; set; }
-        public decimal PriceSale { get; set; }
-        public Guid OrderDetailId { get; set; }
         public string ImageLink { get; set; }
         public int Quantity { get; set; }
-        public string ProductName { get; set; }
+        public int IsPaid { get; set; }
+        public Guid CustomerId { get; set; }
+        public decimal PriceShip { get; set; }
+        public DateTime DateReceive { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
+    }
+    public class OrderDB : Order
+    {
         public string ColorName { get; set; }
         public string SizeCode { get; set; }
-
-        public List<OrderDetail> OrderDetails { get; set; }
+        public Guid OrderDetailId { get; set; }
+        public int Quantity { get; set; }
+        public int Discount { get; set; }
+        public decimal PriceDel { get; set; }
+        public string ProductName { get; set; }
+        public string ImageLink { get; set; }
     }
 }

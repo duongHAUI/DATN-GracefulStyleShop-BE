@@ -32,6 +32,14 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
                 d.CreatedAt = DateTime.Now;
                 d.OrderId = order.OrderId;
                 d.OrderDetailId = Guid.NewGuid();
+                d.ProductVariantId = d.ProductVariantId;
+                d.ProductName = d.ProductName;
+                d.ColorName = d.ColorName;
+                d.SizeCode= d.SizeCode;
+                d.Discount = d.Discount;
+                d.ImageLink = d.ImageLink;
+                d.PriceDel = d.PriceDel;
+                d.Quantity = d.Quantity;
             });
             return order;
         }
@@ -44,6 +52,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
             // Kiểm tra validate
             if (isValid)
             {
+                order.CustomerId = customerId;
                 order = AddProperties(order, true, null, out Guid id);
 
                 bool response = _orderDL.Insert(order, order.OrderDetails,customerId);

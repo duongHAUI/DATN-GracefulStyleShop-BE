@@ -36,7 +36,6 @@ F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\obj\Debug\n
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.API.AssemblyInfoInputs.cache
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.API.AssemblyInfo.cs
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.API.csproj.CoreCompileInputs.cache
-F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.API.MvcApplicationPartsAssemblyInfo.cs
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.API.MvcApplicationPartsAssemblyInfo.cache
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\obj\Debug\net6.0\staticwebassets\msbuild.DATN.NVDUONG.GracefulStyleShop.API.Microsoft.AspNetCore.StaticWebAssets.props
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\obj\Debug\net6.0\staticwebassets\msbuild.build.DATN.NVDUONG.GracefulStyleShop.API.props
