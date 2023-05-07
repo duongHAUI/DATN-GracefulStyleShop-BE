@@ -42,7 +42,8 @@ builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IOrderDL, OrderDL>();
 builder.Services.AddScoped<ICartDL, CartDL>();
-
+builder.Services.AddScoped<IStatisticService, StatisticService>();
+builder.Services.AddScoped<IStatisticDL, StatisticDL>();
 builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 

@@ -26,16 +26,16 @@ public class AuthenPermissionAttribute : Attribute, IAsyncActionFilter
 
     public Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
     {
-        // Kiểm tra authen
-        if (!((Authentication)context.Controller).IsOke)
-        {
-            var userToken = ((Authentication)context.Controller).userToken;
-            if (userToken is null)
-            {
-                context.HttpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                return Task.CompletedTask;
-            }
-        }
+        //// Kiểm tra authen
+        //if (!((Authentication)context.Controller).IsOke)
+        //{
+        //    var userToken = ((Authentication)context.Controller).userToken;
+        //    if (userToken is null)
+        //    {
+        //        context.HttpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
+        //        return Task.CompletedTask;
+        //    }
+        //}
         next();
         return Task.CompletedTask;
     }
