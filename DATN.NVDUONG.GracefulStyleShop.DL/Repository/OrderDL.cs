@@ -116,14 +116,18 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
         {
             try
             {
-                // Tên store produce
-                string query = $"Update `order` set Status = {status} where OrderId = '{orderId}'";
+
+                string storedProducedureName = "Proc_Order_UpdateStatus";
+
+                var parameters = new DynamicParameters();
+                parameters.Add("p_OrderId" , orderId);
+                parameters.Add("p_Status" , status);
 
                 // Mở kết nối
                 _databaseConnection.Open();
-                // Xử lý lấy dữ liệu trong stored
 
-                int result = _databaseConnection.Execute(query, commandType: CommandType.Text);
+                // Xử lý lấy dữ liệu trong stored
+                var result = _databaseConnection.Execute(storedProducedureName, parameters, commandType: CommandType.StoredProcedure);
 
                 _databaseConnection.Close();
 
