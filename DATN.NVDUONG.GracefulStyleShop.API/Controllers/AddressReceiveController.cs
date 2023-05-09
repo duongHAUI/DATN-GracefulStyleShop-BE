@@ -39,5 +39,11 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
                 return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
             }
         }
+
+        public override IActionResult GetByFilter([FromBody] PagingModel paramFilter)
+        {
+            paramFilter.parentId = userToken.UserID;
+            return base.GetByFilter(paramFilter);
+        }
     }
 }

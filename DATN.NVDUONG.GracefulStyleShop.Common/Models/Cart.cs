@@ -21,6 +21,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public string ColorName { get; set; }
         public string SizeCode { get; set; }
         public List<Image> Images { get; set; }
+
+        public int ProVariantQuantity { get; set; }
         public decimal TotalPrice
         {
             get

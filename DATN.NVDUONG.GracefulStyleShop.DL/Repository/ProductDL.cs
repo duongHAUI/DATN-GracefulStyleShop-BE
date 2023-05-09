@@ -84,9 +84,14 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 }).ToList();
 
 
+                storedProducedureName = "Proc_Product_GetTotalProduct";
+
+                int totalProduct = _databaseConnection.Connection().QueryFirstOrDefault<int>(storedProducedureName, commandType: CommandType.StoredProcedure);
+
+
                 var data = new
                 {
-                    Total = productRespone.Count(),
+                    Total = totalProduct,
                     Data = productRespone.ToList()
                 };
 
@@ -278,6 +283,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                     }).ToList(),
                 }).ToList().ElementAt(0);
 
+               
                 // Đóng kết nối
                 _databaseConnection.Close();
 

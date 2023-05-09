@@ -18,6 +18,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
             _orderService = orderService;
         }
 
+        public override IActionResult GetByFilter([FromBody] PagingModel paramFilter)
+        {
+            paramFilter.parentId = userToken.UserID;
+            return base.GetByFilter(paramFilter);
+        }
+
         /// <summary>
         /// Thêm 
         /// </summary>
