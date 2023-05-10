@@ -1,4 +1,5 @@
 ﻿using DATN.NVDUONG.GracefulStyleShop.Common.Commons;
+using DATN.NVDUONG.GracefulStyleShop.Common.Enums;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Tokens;
@@ -41,7 +42,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Common
                 CreatedAt = DateTime.Now,
                 IpAddress = ipAddress,
                 Username = customer.FullName,
-            };
+                EnumRole = EnumRole.Customer
+        };
 
             return userToken;
         }
@@ -61,7 +63,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Common
                 ExpiredAt = DateTime.Now.AddHours(IsRememberPassword ? HOUR_TIMEOUT_TOKEN_REMEMBER : HOUR_TIMEOUT_TOKEN),
                 CreatedAt = DateTime.Now,
                 IpAddress = ipAddress,
-                Username = admin.FullName
+                Username = admin.FullName,
+                EnumRole = EnumRole.Admin
             };
 
             //UserToken.ID = newID.ToGuid(new Guid());

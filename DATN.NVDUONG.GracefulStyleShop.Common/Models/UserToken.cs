@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DATN.NVDUONG.GracefulStyleShop.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public Guid UserTokenId { get; set; }
 
         public Guid UserID { get; set; }
+        public EnumRole EnumRole { get; set; }
 
         public string Username { get; set; }
 

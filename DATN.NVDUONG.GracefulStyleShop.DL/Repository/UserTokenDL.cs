@@ -1,16 +1,11 @@
 ﻿using Dapper;
-using DATN.NVDUONG.GracefulStyleShop.Common.Constants;
 using DATN.NVDUONG.GracefulStyleShop.Common;
+using DATN.NVDUONG.GracefulStyleShop.Common.Constants;
 using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using DATN.NVDUONG.GracefulStyleShop.DL.Database;
 using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Dapper.SqlMapper;
+using System.Reflection;
 
 namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
 {
@@ -40,7 +35,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 // Đóng kết nối
                 _databaseConnection.Close();
 
-                return result > 0 ? true: false;
+                return result > 0 ? true : false;
             }
             catch (Exception ex)
             {
@@ -56,7 +51,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
             try
             {
                 // Tên store produce
-                string storedProducedureName = string.Format(NameProduceConstants.GetByToken,"UserToken");
+                string storedProducedureName = string.Format(NameProduceConstants.GetByToken, "UserToken");
 
                 // Thêm parameter
                 var parametes = new DynamicParameters();
@@ -77,6 +72,47 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
             {
                 Console.WriteLine(ex.Message);
                 // Đóng kết nối
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
+
+        public override bool Insert(UserToken entity)
+        {
+            try
+            {
+                // Tên store produce
+                string storedProducedureName = string.Format(NameProduceConstants.Insert, tableName);
+
+                // Chuẩn bị parameters cho stored produce
+                var parameters = new DynamicParameters();
+                foreach (PropertyInfo propertyInfo in entity.GetType().GetProperties())
+                {
+                    var value = propertyInfo.GetValue(entity);
+                    if (value != null && value.GetType().IsEnum)
+                    {
+                        parameters.Add("p_" + propertyInfo.Name, Convert.ToInt32(value));
+                        continue;
+                    }
+                    // Add parameters
+                    parameters.Add("p_" + propertyInfo.Name, propertyInfo.GetValue(entity));
+                }
+
+                // Mở kết nối
+                _databaseConnection.Open();
+
+                // Xử lý thêm dữ liệu trong stored
+                int res = _databaseConnection.Execute(storedProducedureName, param: parameters, commandType: CommandType.StoredProcedure);
+
+                // Đóng kết nối
+                _databaseConnection.Close();
+
+                //Trả kết quả về
+                return res == 0 ? false : true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
                 _databaseConnection.Close();
                 throw new MExceptionResponse(ex.Message);
             }

@@ -20,7 +20,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
 
         public override IActionResult GetByFilter([FromBody] PagingModel paramFilter)
         {
-            paramFilter.parentId = userToken.UserID;
+            if(userToken.EnumRole == EnumRole.Customer)
+            {
+                paramFilter.parentId = userToken.UserID;
+            }
             return base.GetByFilter(paramFilter);
         }
 
