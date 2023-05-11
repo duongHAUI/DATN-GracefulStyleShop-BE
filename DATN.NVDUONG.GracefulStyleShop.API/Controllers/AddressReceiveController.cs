@@ -45,5 +45,10 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
             paramFilter.parentId = userToken.UserID;
             return base.GetByFilter(paramFilter);
         }
+        public override IActionResult Insert([FromBody] AddressReceive entity)
+        {
+            entity.CustomerId = userToken.UserID;
+            return base.Insert(entity);
+        }
     }
 }

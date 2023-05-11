@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
 {
-    [AuthenPermission]
     public class BrandController : BaseController<Brand>
     {
         private IBaseService<Brand> _baseService;

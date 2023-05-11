@@ -1,4 +1,5 @@
 ﻿using DATN.NVDUONG.GracefulStyleShop.BL.Interfaces;
+using DATN.NVDUONG.GracefulStyleShop.Common.Models;
 using DATN.NVDUONG.GracefulStyleShop.DL.Interfaces;
 using DATN.NVDUONG.GracefulStyleShop.DL.Repository;
 using System;
@@ -16,6 +17,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         {
             _statisticDL = statisticDL;
         }
+
+        public object SellingProductToMonthNow(SellingProductToMonthNow sellingProductToMonthNow)
+        {
+            return _statisticDL.SellingProductToMonthNow(sellingProductToMonthNow);
+        }
+
         public object StatisticsDefault()
         {
             return _statisticDL.StatisticsDefault();
