@@ -64,6 +64,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                     PriceDel = x.Select(x => x.PriceDel).FirstOrDefault(),
                     Quantity = x.Select(x => x.Quantity).FirstOrDefault(),
                     PriceSale = x.Select(x => x.PriceSale).FirstOrDefault(),
+                    IsMassDiscount = x.Select(x => x.IsMassDiscount).FirstOrDefault(),
+                    MassDiscount = x.Select(x => x.MassDiscount).FirstOrDefault(),
                     Images = x.GroupBy(x => x.ImageId).Select(x => new Image()
                     {
                         ImageId = x.Select(x => x.ImageId).FirstOrDefault(),
@@ -147,13 +149,16 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                                             productEntry.Images = new List<Image>();
                                             productDictionary.Add(productEntry.ProductId, productEntry);
                                         }
-
-                                        productEntry.Images.Add(image);
+                                        if(image != null)
+                                        {
+                                            productEntry.Images.Add(image);
+                                        }
                                         return productEntry;
                                     }, commandType: CommandType.StoredProcedure, param: parameters,
                                     splitOn: "ImageId")
                                     .Distinct()
                                     .ToList();
+
                 var data = new PagingResult<Product>
                 {
                     Total = result.Count(),

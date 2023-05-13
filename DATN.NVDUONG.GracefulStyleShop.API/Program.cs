@@ -44,6 +44,7 @@ builder.Services.AddScoped<IOrderDL, OrderDL>();
 builder.Services.AddScoped<ICartDL, CartDL>();
 builder.Services.AddScoped<IStatisticService, StatisticService>();
 builder.Services.AddScoped<IStatisticDL, StatisticDL>();
+builder.Services.AddScoped<ICreditCardService, CreditCardService>();
 builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 

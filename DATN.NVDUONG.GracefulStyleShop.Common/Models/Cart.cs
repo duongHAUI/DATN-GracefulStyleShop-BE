@@ -23,6 +23,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public List<Image> Images { get; set; }
 
         public int ProVariantQuantity { get; set; }
+        public bool IsMassDiscount { get; set; }
+        public int MassDiscount { get; set; }
         public decimal TotalPrice
         {
             get

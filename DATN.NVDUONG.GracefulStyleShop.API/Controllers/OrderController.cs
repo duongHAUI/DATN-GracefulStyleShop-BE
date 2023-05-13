@@ -60,7 +60,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
             try
             {
                 // Gọi hàm xử lý
-                bool result = _orderService.UpdateStatus(updateOrder.OrderId, updateOrder.Status);
+                bool result = _orderService.UpdateStatus(updateOrder.OrderId, updateOrder.Status,updateOrder.CancelReason);
                 return StatusCode(StatusCodes.Status200OK, result);
             }
             catch (MExceptionResponse ex)

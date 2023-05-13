@@ -112,7 +112,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
             }
         }
 
-        public bool UpdateStatus(Guid orderId, int status)
+        public bool UpdateStatus(Guid orderId, int status,string CancelReason)
         {
             try
             {
@@ -122,6 +122,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 var parameters = new DynamicParameters();
                 parameters.Add("p_OrderId" , orderId);
                 parameters.Add("p_Status" , status);
+                parameters.Add("p_CancelReason", CancelReason);
 
                 // Mở kết nối
                 _databaseConnection.Open();

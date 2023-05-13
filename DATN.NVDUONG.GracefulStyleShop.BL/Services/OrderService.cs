@@ -69,9 +69,9 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
             return result;
         }
 
-        public bool UpdateStatus(Guid orderId, int status)
+        public bool UpdateStatus(Guid orderId, int status,string CancelReason)
         {
-            return _orderDL.UpdateStatus(orderId, status);
+            return _orderDL.UpdateStatus(orderId, status,CancelReason);
         }
     }
 }

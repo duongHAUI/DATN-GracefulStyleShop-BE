@@ -19,7 +19,9 @@
         public string TypeName { get; set; }
         public Guid BrandId { get; set; }
         public string BrandName { get; set; }
-        public List<Image> Images { get; set; }
+        public List<Image> Images { get; set; } = new List<Image>();
+        public bool IsMassDiscount { get; set; }
+        public int MassDiscount { get; set; }
         public decimal PriceDel
         {
             get
@@ -42,6 +44,7 @@
         public string ColorCode { get; set; }
         public string SizeCode { get; set; }
         public string ColorName { get; set; }
+        public int ProVariantQuantity { get; set; }
     }
 
 }

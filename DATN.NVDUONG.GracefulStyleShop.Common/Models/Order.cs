@@ -49,5 +49,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
     {
         public Guid OrderId { get; set; }
         public int Status { get; set; }
+
+        public string CancelReason { get; set; }
     }
 }

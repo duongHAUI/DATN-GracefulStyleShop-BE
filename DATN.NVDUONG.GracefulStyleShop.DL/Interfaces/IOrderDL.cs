@@ -11,6 +11,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Interfaces
     public interface IOrderDL : IBaseDL<Order>
     {
         public bool Insert(Order order,List<OrderDetail> orderDetails,Guid customerId);
-        public bool UpdateStatus(Guid orderId, int status);
+        public bool UpdateStatus(Guid orderId, int status,string CancelReason);
     }
 }

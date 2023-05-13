@@ -93,10 +93,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
 
                 // Mở kết nối
                 _databaseConnection.Open();
-                // Xử lý lấy dữ liệu trong stored
-                var ProductDB = _databaseConnection.Connection().Query<ProductDB>(storedProducedureName, parameters, commandType: CommandType.StoredProcedure);
-                // Lấy số lượng 
-
                 //var ProductDB = result.Read<ProductDB>();
                 var productDictionary = new Dictionary<Guid, Cart>();
                 // Xử lý lấy dữ liệu trong stored
