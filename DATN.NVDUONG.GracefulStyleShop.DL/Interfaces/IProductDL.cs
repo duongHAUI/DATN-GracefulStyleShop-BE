@@ -14,5 +14,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Interfaces
         public bool UpdateSold(Guid productId, int sold);
         public object GetByFilterDetail(dynamic parametersFilter);
         public object GetByIDDetail(Guid id);
+         public bool MassDiscount(MassDiscountModel massDiscountModel);
+         public MassDiscountModel GetMassDiscount();
     }
 }

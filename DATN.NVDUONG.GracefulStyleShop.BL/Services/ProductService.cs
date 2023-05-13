@@ -30,9 +30,19 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
             return _productDL.GetByIDDetail(id);
         }
 
+        public bool MassDiscount(MassDiscountModel massDiscountModel)
+        {
+            return _productDL.MassDiscount(massDiscountModel);
+        }
+
         public bool UpdateSold(Guid productId, int sold)
         {
             return _productDL.UpdateSold(productId, sold);
+        }
+
+        public MassDiscountModel GetMassDiscount()
+        {
+            return _productDL.GetMassDiscount();
         }
 
         ///// <summary>

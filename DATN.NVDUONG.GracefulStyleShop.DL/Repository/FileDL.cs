@@ -88,9 +88,12 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
         {
             // Mở kết nối
             _databaseConnection.Open();
-
+            _databaseConnection.BeginTransaction();
             // Đóng kết nối
             int result = _databaseConnection.InsertRecords<Image>(images);
+
+            _databaseConnection.CommitTransaction();
+            _databaseConnection.Open();
 
             return result > 0 ? true : false;
         }

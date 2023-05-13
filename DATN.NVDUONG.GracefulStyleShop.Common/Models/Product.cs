@@ -47,4 +47,12 @@
         public int ProVariantQuantity { get; set; }
     }
 
+    public class MassDiscountBrand
+    {
+        public Guid BrandId { get; set; }
+    }
+    public class MassDiscountType
+    {
+        public Guid TypeId { get; set; }
+    }
 }

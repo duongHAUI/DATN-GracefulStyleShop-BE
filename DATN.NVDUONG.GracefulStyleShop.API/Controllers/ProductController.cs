@@ -87,5 +87,47 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
                 return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
             }
         }
+
+        [AllowAnonymous]
+        [HttpPut]
+        [Route("Mass-Discount")]
+        public IActionResult MassDiscount(MassDiscountModel massDiscountModel)
+        {
+            try
+            {
+                // Xử lý
+                var result = _productService.MassDiscount(massDiscountModel);
+
+                // Trả về thông tin của employee muốn lấy
+                return StatusCode(StatusCodes.Status200OK, result);
+            }
+            catch (MExceptionResponse ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Bắn lỗi exeption
+                return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("Get-Mass-Discount")]
+        public IActionResult GetMassDiscount()
+        {
+            try
+            {
+                // Xử lý
+                var result = _productService.GetMassDiscount();
+
+                // Trả về thông tin của employee muốn lấy
+                return StatusCode(StatusCodes.Status200OK, result);
+            }
+            catch (MExceptionResponse ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Bắn lỗi exeption
+                return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
+            }
+        }
     }
 }

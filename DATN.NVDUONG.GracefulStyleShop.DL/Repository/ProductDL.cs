@@ -11,6 +11,9 @@ using static Dapper.SqlMapper;
 using System.Reflection;
 using System.Reflection.Metadata;
 using System.Security.Cryptography;
+using System.Collections.Generic;
+using System.Data.Common;
+using System.Transactions;
 
 namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
 {
@@ -319,6 +322,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                     return false;
                 }
                 _databaseConnection.CommitTransaction();
+                _databaseConnection.Close();
                 return true;
 
             }
@@ -331,5 +335,70 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
             }
         }
 
+        public bool MassDiscount(MassDiscountModel massDiscountModel)
+        {
+            try
+            {
+                int numberRecoredDeleted;
+                string query = "";
+
+                _databaseConnection.Open();
+                _databaseConnection.BeginTransaction();
+                if (massDiscountModel.Types.Count == 0 && massDiscountModel.Brands.Count == 0)
+                {
+                    query = "update product set IsMassDiscount = 0 where IsMassDiscount = 1";
+                    numberRecoredDeleted = _databaseConnection.Connection().Execute(query, commandType: CommandType.Text,transaction:_databaseConnection.Transaction());
+                }
+                else
+                {
+                    query = $"Update product set IsMassDiscount = 1 and MassDiscount = {massDiscountModel.DiscountNumber} where BrandId in (@Id)";
+                    numberRecoredDeleted = _databaseConnection.Connection().Execute(query, massDiscountModel.Brands.AsEnumerable().Select(i => new { Id = i }).ToList(), transaction:_databaseConnection.Transaction());
+                    query = $"Update product set IsMassDiscount = 1 and MassDiscount = {massDiscountModel.DiscountNumber} where BrandId in (@Id)";
+                    numberRecoredDeleted = _databaseConnection.Connection().Execute(query, massDiscountModel.Brands.AsEnumerable().Select(i => new { Id = i }).ToList(), transaction: _databaseConnection.Transaction());
+                }
+                _databaseConnection.CommitTransaction();
+                _databaseConnection.Close();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                _databaseConnection.RollbackTransaction();
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
+
+        public MassDiscountModel GetMassDiscount()
+        {
+            try
+            {
+                var result = new MassDiscountModel();
+                // Tên store produce
+                string storedProducedureName = "Proc_Proc_GetMassDiscount";
+                // Mở kết nối
+                _databaseConnection.Open();
+
+                // Xử lý thêm dữ liệu trong stored
+                var res = _databaseConnection.QueryMultiple(storedProducedureName, commandType: CommandType.StoredProcedure);
+
+                result = new MassDiscountModel()
+                {
+                    Brands = res.Read<MassDiscountBrand>().Select(x => x.BrandId).ToList(),
+                    Types = res.Read<MassDiscountType>().Select(x => x.TypeId).ToList()
+                };
+
+                // Đóng kết nối
+                _databaseConnection.Close();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
     }
 }

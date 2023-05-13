@@ -20,5 +20,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Interfaces
         public object GetByFilterDetail(dynamic parameters);
 
         public object GetByIDDetail([FromRoute] Guid id);
+
+        public bool MassDiscount(MassDiscountModel massDiscountModel);
+        public MassDiscountModel GetMassDiscount();
     }
 }

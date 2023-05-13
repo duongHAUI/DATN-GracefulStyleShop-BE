@@ -11,4 +11,11 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models.DTO
     {
         public int FilterType { get; set; }
     }
+
+    public class MassDiscountModel
+    {
+        public List<Guid> Brands { get; set; }
+        public List<Guid> Types { get; set; }
+        public int DiscountNumber { get; set; }
+    }
 }
