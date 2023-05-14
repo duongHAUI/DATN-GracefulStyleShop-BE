@@ -351,14 +351,14 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 }
                 else
                 {
-                    query = $"Update product set IsMassDiscount = 1 and MassDiscount = {massDiscountModel.DiscountNumber} where BrandId in (@Id)";
-                    numberRecoredDeleted = _databaseConnection.Connection().Execute(query, massDiscountModel.Brands.AsEnumerable().Select(i => new { Id = i }).ToList(), transaction:_databaseConnection.Transaction());
-                    query = $"Update product set IsMassDiscount = 1 and MassDiscount = {massDiscountModel.DiscountNumber} where BrandId in (@Id)";
+                    query = $"Update product set IsMassDiscount = 1 , MassDiscount = {massDiscountModel.DiscountNumber} where BrandId in (@Id)";
+                    numberRecoredDeleted = _databaseConnection.Connection().Execute(query, massDiscountModel.Brands.AsEnumerable().Select(i => new { Id = i.ToString() }).ToList(), transaction:_databaseConnection.Transaction());
+                    query = $"Update product set IsMassDiscount = 1 , MassDiscount = {massDiscountModel.DiscountNumber} where BrandId in (@Id)";
                     numberRecoredDeleted = _databaseConnection.Connection().Execute(query, massDiscountModel.Brands.AsEnumerable().Select(i => new { Id = i }).ToList(), transaction: _databaseConnection.Transaction());
                 }
                 _databaseConnection.CommitTransaction();
                 _databaseConnection.Close();
-                return true;
+                 return true;
 
             }
             catch (Exception ex)
