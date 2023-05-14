@@ -88,5 +88,34 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                 throw new MExceptionResponse(ex.Message);
             }
         }
+
+        public List<StatisticRevenueResponse> StatisticRevenue(SellingProductToMonthNow sellingProductToMonthNow)
+        {
+            try
+            {
+                var obj = new StatisticModel();
+                // Tên store procedure
+                string storedProcedureName = "Proc_Statistic_StatisticRevenue";
+
+                // Thêm parameter
+                var parameters = new DynamicParameters();
+                parameters.Add("p_Year", sellingProductToMonthNow.Year);
+
+                // Mở kết nối
+                _databaseConnection.Open();
+                // Xử lý lấy dữ liệu trong stored
+
+                var result = _databaseConnection.Connection().Query<StatisticRevenueResponse>(storedProcedureName, param: parameters, commandType: CommandType.StoredProcedure);
+
+                return result.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Đóng kết nối
+                _databaseConnection.Close();
+                throw new MExceptionResponse(ex.Message);
+            }
+        }
     }
 }

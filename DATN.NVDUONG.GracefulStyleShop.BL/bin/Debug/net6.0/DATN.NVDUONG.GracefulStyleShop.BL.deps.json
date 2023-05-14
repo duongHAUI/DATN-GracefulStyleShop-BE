@@ -12,6 +12,7 @@
           "DATN.NVDUONG.GracefulStyleShop.Common": "1.0.0",
           "DATN.NVDUONG.GracefulStyleShop.DL": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.16",
+          "Microsoft.AspNetCore.Razor.Language": "6.0.16",
           "StackExchange.Redis": "2.6.104"
         },
         "runtime": {
@@ -101,6 +102,14 @@
         "dependencies": {
           "Microsoft.Extensions.Primitives": "6.0.0",
           "System.IO.Pipelines": "5.0.2"
+        }
+      },
+      "Microsoft.AspNetCore.Razor.Language/6.0.16": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {
+            "assemblyVersion": "6.0.16.0",
+            "fileVersion": "6.0.1623.17406"
+          }
         }
       },
       "Microsoft.CSharp/4.5.0": {},
@@ -437,6 +446,13 @@
       "sha512": "sha512-3jG2xS+dx8DDCGV/F+STdPTg89lX3ao3dF/VEPvJaz3wzBIjuadipTtYNEXDIVuOPZwb6jdmhrX9jkzOIBm5cw==",
       "path": "microsoft.aspnetcore.http.features/5.0.17",
       "hashPath": "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Razor.Language/6.0.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zR22NAuSRgAmQhHS+VwLOUXhygL5JSVUScd38nzgi0dN+2+PXiVqVmevZQMhSJuV887iRBt5k2i+gmVlZ7OA0w==",
+      "path": "microsoft.aspnetcore.razor.language/6.0.16",
+      "hashPath": "microsoft.aspnetcore.razor.language.6.0.16.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",

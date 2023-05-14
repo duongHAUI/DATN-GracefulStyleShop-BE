@@ -66,3 +66,5 @@ F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\bin\Debug\n
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\bin\Debug\net6.0\StackExchange.Redis.dll
 F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
+F:\DATN\DATN-GracefulStyleShop-BE\DATN.NVDUONG.GracefulStyleShop.API\obj\Debug\net6.0\DATN.NVDUONG.GracefulStyleShop.API.MvcApplicationPartsAssemblyInfo.cs

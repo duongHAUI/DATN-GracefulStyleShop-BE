@@ -7,6 +7,8 @@
         public string ProductName { get; set; }
         public int Sold { get; set; }
         public int Quantity { get; set; }
+        public bool IsMassDiscount { get; set; }
+        public int MassDiscount { get; set; }
         public int Discount { get; set; }
         public string Description { get; set; }
         public decimal PriceSale { get; set; }
@@ -20,13 +22,11 @@
         public Guid BrandId { get; set; }
         public string BrandName { get; set; }
         public List<Image> Images { get; set; } = new List<Image>();
-        public bool IsMassDiscount { get; set; }
-        public int MassDiscount { get; set; }
         public decimal PriceDel
         {
             get
             {
-                return PriceSale * (decimal)(1 - Discount * 0.01);
+                return PriceSale * (decimal)(1 -(IsMassDiscount ? MassDiscount :Discount) * 0.01);
             }
             set
             {

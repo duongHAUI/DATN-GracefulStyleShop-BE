@@ -288,6 +288,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
                     {
                         SizeId = x.Key,
                         SizeCode = x.Select(x => x.SizeCode).FirstOrDefault(),
+                        ProductVariantQuantity = x.Select(x => x.ProductVariantQuantity).FirstOrDefault()
                     }).ToList(),
                 }).ToList().ElementAt(0);
 

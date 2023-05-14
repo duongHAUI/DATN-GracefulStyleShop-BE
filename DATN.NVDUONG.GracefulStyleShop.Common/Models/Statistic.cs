@@ -17,4 +17,11 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public int totalQuantity { get; set; }
         public string ProductName { get; set; }
     }
+
+    public class StatisticRevenueResponse
+    {
+        public string MonthTitle { get; set; }
+        public int Month { get; set; }
+        public decimal TotalPrice { get; set; }
+    }
 }

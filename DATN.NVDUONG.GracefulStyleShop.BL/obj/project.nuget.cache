@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HiK5iC+/MMlKlXcoE6BDDC2qksJqWwlEGhpMtfDTQ0N5JOJg7h4Ns5AdMvIpa+dYlR33O7qE4bltbwW3i/cMUg==",
+  "dgSpecHash": "ilHmAva7ju5frrtmbWv5hI71WjH31brJ2pLQH0j8+hZdsNkQFqDgQNQQzXruMOl8rs/WSRlbv8A8v6jQbsJifw==",
   "success": true,
   "projectFilePath": "F:\\DATN\\DATN-GracefulStyleShop-BE\\DATN.NVDUONG.GracefulStyleShop.BL\\DATN.NVDUONG.GracefulStyleShop.BL.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\duong\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.16\\microsoft.aspnetcore.razor.language.6.0.16.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

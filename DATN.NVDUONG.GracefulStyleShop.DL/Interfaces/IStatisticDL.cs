@@ -11,5 +11,6 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Interfaces
     {
         public object StatisticsDefault();
         public object SellingProductToMonthNow(SellingProductToMonthNow sellingProductToMonthNow);
+        public List<StatisticRevenueResponse> StatisticRevenue(SellingProductToMonthNow sellingProductToMonthNow);
     }
 }

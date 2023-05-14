@@ -44,15 +44,9 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         {
             return _productDL.GetMassDiscount();
         }
-
-        ///// <summary>
-        ///// Xóa nhiều bản ghi
-        ///// </summary>
-        ///// <param name="listId">ListID</param>
-        ///// <returns>Số bản ghi thay đổi</returns>
-        //public override bool DeleteRecords(List<Guid> listId)
-        //{
-        //    return _productDL.DeleteUpdateRecords(listId);
-        //}
+        public override void ValidateCustom(Product entity, bool isInsert = true)
+        {
+            Guid? productId = _productDL.GetByCode(entity.ProductCode);
+        }
     }
 }

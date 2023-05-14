@@ -80,7 +80,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.DL.Repository
         /// </summary>
         /// <param name="EntityCode">Mã đối tượng</param>
         /// <returns>Trả về Id đối tượng</returns>
-        public Guid GetByCode(string EntityCode)
+        public virtual Guid GetByCode(string EntityCode)
         {
             try
             {

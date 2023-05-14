@@ -60,5 +60,22 @@ namespace DATN.NVDUONG.GracefulStyleShop.API.Controllers
             }
         }
 
+        [HttpPost("StatisticRevenue")]
+        public IActionResult StatisticRevenue([FromBody] SellingProductToMonthNow sellingProductToMonthNow)
+        {
+            try
+            {
+                // Gọi hàm xử lý
+                var result = _statisticService.StatisticRevenue(sellingProductToMonthNow);
+                return StatusCode(StatusCodes.Status200OK, result);
+            }
+            catch (MExceptionResponse ex)
+            {
+                Console.WriteLine(ex.Message);
+                // Bắn lỗi exeption
+                return ExceptionErrorResponse(ex, HttpContext.TraceIdentifier);
+            }
+        }
+
     }
 }

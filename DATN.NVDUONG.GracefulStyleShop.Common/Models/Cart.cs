@@ -11,6 +11,8 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public Guid CartId { get; set; }
         public int Quantity { get; set; }
         public decimal PriceSale { get; set; }
+        public bool IsMassDiscount { get; set; }
+        public int MassDiscount { get; set; }
         public int Discount { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
@@ -23,13 +25,11 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         public List<Image> Images { get; set; }
 
         public int ProVariantQuantity { get; set; }
-        public bool IsMassDiscount { get; set; }
-        public int MassDiscount { get; set; }
         public decimal TotalPrice
         {
             get
             {
-                return Quantity * PriceSale * (decimal)(1 - Discount * 0.01);
+                return PriceSale * (decimal)(1 - (IsMassDiscount ? MassDiscount : Discount) * 0.01) * Quantity;
             }
         }
         public decimal TotalDel
@@ -43,7 +43,7 @@ namespace DATN.NVDUONG.GracefulStyleShop.Common.Models
         {
             get
             {
-                return PriceSale * (decimal)(1 - Discount * 0.01);
+                return PriceSale * (decimal)(1 - (IsMassDiscount ? MassDiscount : Discount) * 0.01);
             }
             set
             {

@@ -1,0 +1,55 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link href="~/Content/invoice.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Invoice</h1>
+    <table>
+        <tr>
+            <td><strong>Invoice number:</strong></td>
+            <td>@Model.InvoiceNumber</td>
+        </tr>
+        <tr>
+            <td><strong>Customer name:</strong></td>
+            <td>@Model.CustomerName</td>
+        </tr>
+        <tr>
+            <td><strong>Customer address:</strong></td>
+            <td>@Model.CustomerAddress</td>
+        </tr>
+        <tr>
+            <td><strong>Invoice date:</strong></td>
+            <td>@Model.InvoiceDate.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <td><strong>Items:</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product name</th>
+                            <th>Quantity</th>
+                            <th>Unit price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="total">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
