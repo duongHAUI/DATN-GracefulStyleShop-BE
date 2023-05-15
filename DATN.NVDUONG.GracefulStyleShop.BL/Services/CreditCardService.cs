@@ -29,10 +29,9 @@ namespace DATN.NVDUONG.GracefulStyleShop.BL.Services
         public async Task<Dictionary<string, string>> Checkout(CreditCardInfo creditCardInfor)
         {
             string orderCode = "DH" + DateTime.Now.ToString("yyyyMMddHHmmss");
-
             creditCardInfor.ClientCode = "000001";
             creditCardInfor.MerchantCode = "00000081";
-            creditCardInfor.PaymentDetail = $"Thanh toan mua hang {orderCode}";
+            creditCardInfor.PaymentDetail = $"Thanh toan hóa đơn {orderCode} \nTổng tiền {creditCardInfor.Amount}đ \nNgày {DateTime.Now.ToString("dd/MM/yyyy")} ";
             creditCardInfor.ClientTransCode = Guid.NewGuid().ToString();
 
             string hashString = HashInforCreditCard(creditCardInfor);
